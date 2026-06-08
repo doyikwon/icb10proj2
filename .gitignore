@@ -191,3 +191,7 @@ checkpoints/
 # System / OS files
 .DS_Store
 Thumbs.db
+
+# Hidden files and folders
+.*
+!.gitignore
