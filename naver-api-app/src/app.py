@@ -68,13 +68,26 @@ st.markdown("""
 
 # ----------------- 사이드바 (Sidebar) 공통 설정 -----------------
 st.sidebar.markdown("# 🔑 NAVER API 설정")
-client_id = os.getenv("NAVER_CLIENT_ID", "").strip()
-client_secret = os.getenv("NAVER_CLIENT_SECRET", "").strip()
+
+# 1) Streamlit secrets에서 로드 시도
+client_id = ""
+client_secret = ""
+
+if "NAVER_CLIENT_ID" in st.secrets:
+    client_id = st.secrets["NAVER_CLIENT_ID"].strip()
+if "NAVER_CLIENT_SECRET" in st.secrets:
+    client_secret = st.secrets["NAVER_CLIENT_SECRET"].strip()
+
+# 2) Secrets에 없을 경우 .env / 환경 변수에서 로드 시도
+if not client_id:
+    client_id = os.getenv("NAVER_CLIENT_ID", "").strip()
+if not client_secret:
+    client_secret = os.getenv("NAVER_CLIENT_SECRET", "").strip()
 
 if client_id and client_secret:
-    st.sidebar.success("🔑 NAVER API 키 로드 완료 (.env)")
+    st.sidebar.success("🔑 NAVER API 키 로드 완료")
 else:
-    st.sidebar.warning("⚠️ .env 파일에서 API 키를 로드하지 못했습니다. 키 설정을 확인해 주세요.")
+    st.sidebar.warning("⚠️ API 키를 로드하지 못했습니다. st.secrets 또는 .env 설정을 확인해 주세요.")
 
 st.sidebar.markdown("---")
 st.sidebar.markdown("# 🔍 데이터 수집 설정")
@@ -111,7 +124,7 @@ def check_api_keys():
     if not client_id or not client_secret:
         st.markdown(f"""
         <div class="info-box">
-            👉 <b>naver-api-app 폴더 내의 .env 파일에 NAVER API Client ID와 Client Secret을 먼저 입력해 주세요.</b>
+            👉 <b>Streamlit Secrets 또는 .env 파일에 NAVER API Client ID와 Client Secret을 설정해 주세요.</b>
         </div>
         """, unsafe_allow_html=True)
         return False
