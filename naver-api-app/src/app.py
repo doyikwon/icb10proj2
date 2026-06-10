@@ -73,10 +73,14 @@ st.sidebar.markdown("# 🔑 NAVER API 설정")
 client_id = ""
 client_secret = ""
 
-if "NAVER_CLIENT_ID" in st.secrets:
-    client_id = st.secrets["NAVER_CLIENT_ID"].strip()
-if "NAVER_CLIENT_SECRET" in st.secrets:
-    client_secret = st.secrets["NAVER_CLIENT_SECRET"].strip()
+try:
+    if "NAVER_CLIENT_ID" in st.secrets:
+        client_id = st.secrets["NAVER_CLIENT_ID"].strip()
+    if "NAVER_CLIENT_SECRET" in st.secrets:
+        client_secret = st.secrets["NAVER_CLIENT_SECRET"].strip()
+except Exception:
+    # st.secrets가 설정되지 않은 경우 (StreamlitSecretNotFoundError 등) 예외 처리
+    pass
 
 # 2) Secrets에 없을 경우 .env / 환경 변수에서 로드 시도
 if not client_id:
