@@ -192,6 +192,19 @@ checkpoints/
 .DS_Store
 Thumbs.db
 
-# Hidden files and folders
+# Hidden files and folders (숨김 폴더 및 파일)
 .*
 !.gitignore
+.agents/
+.venv/
+.vscode/
+.idea/
+
+# Configuration and environment files (설정 파일 및 환경 변수 파일)
+.env
+.env.*
+*.env
+*.local
+*.config
+*.conf
+config.ini
