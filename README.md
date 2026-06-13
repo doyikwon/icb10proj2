@@ -1,3 +1,15 @@
+# 🚀 프로젝트 정보 및 작업 내역
+
+- **Streamlit 접속 주소**: [https://icb10proj2-abycsrwhvfnxukjgusgo4w.streamlit.app/cafe](https://icb10proj2-abycsrwhvfnxukjgusgo4w.streamlit.app/cafe)
+
+## 🛠️ 최근 작업 내역
+1. **GCP 프로젝트 ID 변경**
+   - 대상 GCP 프로젝트 ID를 `doyikwon`에서 `icbproj2`로 변경 완료 (`gcloud` 설정 업데이트 완료).
+2. **자동 커밋 및 푸시 스크립트 구축**
+   - 파일 변경사항을 5초 단위로 감지하여 자동 커밋 & 푸시하는 백그라운드 스크립트(`auto_commit_push.py`) 구축 및 백그라운드 실행 적용.
+
+---
+
 ## STEP 0. 팀 구성 및 협업 환경 세팅
 
 ### 슬랙 세팅
