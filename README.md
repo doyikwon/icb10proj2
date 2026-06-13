@@ -1,6 +1,6 @@
 # 🚀 프로젝트 정보 및 작업 내역
 
-- **Streamlit 접속 주소**: [https://icb10proj2-abycsrwhvfnxukjgusgo4w.streamlit.app/cafe](https://icb10proj2-abycsrwhvfnxukjgusgo4w.streamlit.app/cafe)
+- **Streamlit 접속 주소**: [https://icb10proj2-abycsrwhvfnxukjgusgo4w.streamlit.app](https://icb10proj2-abycsrwhvfnxukjgusgo4w.streamlit.app)
 
 ## 🛠️ 최근 작업 내역
 1. **GCP 프로젝트 ID 변경**
