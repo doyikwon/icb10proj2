@@ -1,5 +1,5 @@
 """
-Antigravity IDE 내부의 agy.exe 파일을 찾아 AppData 로컬 폴더에 확실하게 재설치하는 스크립트입니다.
+Antigravity IDE 내부의 agy.exe 파일을 전체 사용자 폴더에서 찾아 AppData 로컬 폴더에 확실하게 재설치하는 스크립트입니다.
 """
 
 import os
@@ -11,11 +11,14 @@ def main():
     print("Terminating running agy.exe processes...")
     subprocess.run(["taskkill", "/f", "/im", "agy.exe"], capture_output=True)
     
-    # 2. Search path using forward slashes in python
-    p = "C:/Users/doyik/AppData/Local/Programs/Antigravity IDE"
-    print(f"Scanning: {p}")
+    # 2. Search path under user profile
+    p = os.environ.get("USERPROFILE", "C:/Users/doyik")
+    print(f"Scanning for agy.exe under: {p}")
     src = None
     for r, d, files in os.walk(p):
+        # Skip directories to speed up and avoid copying already-installed or ignored directories
+        if "onedrive" in r.lower() or ".venv" in r.lower() or "appdata/local/agy" in r.lower().replace("\\", "/"):
+            continue
         for f in files:
             if f.lower() == "agy.exe":
                 src = os.path.join(r, f)
