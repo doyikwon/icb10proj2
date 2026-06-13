@@ -136,6 +136,197 @@ def check_api_keys():
 
 # ----------------- 페이지 함수 정의 -----------------
 
+def unified_search_page():
+    st.markdown("<div class='main-title'>🔍 통합 검색 분석 (Unified Dashboard)</div>", unsafe_allow_html=True)
+    st.markdown("<div class='sub-title'>선택한 하나의 키워드에 대해 네이버 쇼핑, 블로그, 카페, 뉴스 데이터를 동시에 분석합니다.</div>", unsafe_allow_html=True)
+    
+    if check_api_keys():
+        target_kw = st.selectbox("분석 대상 키워드 선택", keywords, key="unified_kw_select")
+        sort_option = st.selectbox("검색 정렬 기준", ["sim", "date"], format_func=lambda x: {"sim":"유사도순", "date":"최신등록순"}[x], key="unified_sort_select")
+        
+        if st.button("통합 데이터 분석 시작", type="primary", key="unified_btn"):
+            with st.spinner("모든 채널(쇼핑, 블로그, 카페, 뉴스) 데이터 통합 수집 중..."):
+                try:
+                    # 1. 데이터 수집
+                    shop_data = api_client.search_shopping(client_id, client_secret, target_kw, display=30, sort=sort_option)
+                    blog_data = api_client.search_blog(client_id, client_secret, target_kw, display=30, sort=sort_option)
+                    cafe_data = api_client.search_cafe(client_id, client_secret, target_kw, display=30, sort=sort_option)
+                    news_data = api_client.search_news(client_id, client_secret, target_kw, display=30, sort=sort_option)
+                    
+                    shop_items = shop_data.get("items", [])
+                    blog_items = blog_data.get("items", [])
+                    cafe_items = cafe_data.get("items", [])
+                    news_items = news_data.get("items", [])
+                    
+                    # 2. 데이터 가공
+                    df_shop = pd.DataFrame(shop_items) if shop_items else pd.DataFrame()
+                    df_blog = pd.DataFrame(blog_items) if blog_items else pd.DataFrame()
+                    df_cafe = pd.DataFrame(cafe_items) if cafe_items else pd.DataFrame()
+                    df_news = pd.DataFrame(news_items) if news_items else pd.DataFrame()
+                    
+                    # 3. 요약 지표 계산
+                    avg_price_str = "N/A"
+                    min_price_str = "N/A"
+                    if not df_shop.empty:
+                        df_shop["lprice"] = pd.to_numeric(df_shop["lprice"], errors="coerce").fillna(0)
+                        price_df = df_shop[df_shop["lprice"] > 0]
+                        if not price_df.empty:
+                            avg_price_str = f"{int(price_df['lprice'].mean()):,}원"
+                            min_price_str = f"{int(price_df['lprice'].min()):,}원"
+                    
+                    # 4. 상단 메트릭 카드 시각화
+                    kpi1, kpi2, kpi3, kpi4 = st.columns(4)
+                    with kpi1:
+                        st.markdown(f"<div class='metric-card'><div class='metric-label'>🛒 쇼핑 평균 최저가</div><div class='metric-value'>{avg_price_str}</div></div>", unsafe_allow_html=True)
+                    with kpi2:
+                        st.markdown(f"<div class='metric-card'><div class='metric-label'>📝 블로그 글 수 (수집)</div><div class='metric-value'>{len(df_blog)}건</div></div>", unsafe_allow_html=True)
+                    with kpi3:
+                        st.markdown(f"<div class='metric-card'><div class='metric-label'>👥 카페 게시글 수 (수집)</div><div class='metric-value'>{len(df_cafe)}건</div></div>", unsafe_allow_html=True)
+                    with kpi4:
+                        st.markdown(f"<div class='metric-card'><div class='metric-label'>📰 뉴스 기사 수 (수집)</div><div class='metric-value'>{len(df_news)}건</div></div>", unsafe_allow_html=True)
+                    
+                    st.markdown("---")
+                    
+                    # 5. 탭 레이아웃 구성
+                    tab1, tab2, tab3, tab4 = st.tabs(["📊 요약 및 트렌드", "🛒 쇼핑 분석", "📝 소셜 분석 (블로그/카페)", "📰 뉴스 분석"])
+                    
+                    # Tab 1: 요약 및 트렌드
+                    with tab1:
+                        st.markdown("### 📊 채널별 수집 현황 요약")
+                        channel_counts = pd.DataFrame({
+                            "채널": ["쇼핑 상품", "블로그", "카페글", "뉴스"],
+                            "수집 데이터 수": [len(df_shop), len(df_blog), len(df_cafe), len(df_news)]
+                        })
+                        fig_summary = px.bar(
+                            channel_counts, x="채널", y="수집 데이터 수",
+                            color="채널", title="각 검색 API 채널별 데이터 수집 통계",
+                            template="plotly_white"
+                        )
+                        st.plotly_chart(fig_summary, use_container_width=True)
+                        
+                        st.markdown("""
+                        💡 **통합 검색 인사이트 가이드**
+                        - 각 채널의 탭으로 이동하시면 채널별 상세 시각화 차트와 수집 데이터 원본을 확인할 수 있습니다.
+                        - 쇼핑 탭에서는 최저가 분포 및 주요 쇼핑몰을 분석합니다.
+                        - 소셜 탭에서는 블로그 및 카페의 언급 트렌드와 여론 방향을 모니터링할 수 있습니다.
+                        - 뉴스 탭에서는 최근 언론 보도량 흐름과 주요 헤드라인을 제공합니다.
+                        """)
+                    
+                    # Tab 2: 쇼핑 분석
+                    with tab2:
+                        if not df_shop.empty:
+                            st.markdown("### 🛒 쇼핑 최저가 및 입점 현황")
+                            df_shop["title_clean"] = df_shop["title"].str.replace(r"<[^>]*>", "", regex=True)
+                            price_df = df_shop[df_shop["lprice"] > 0]
+                            
+                            col_l, col_r = st.columns(2)
+                            with col_l:
+                                fig_hist = px.histogram(
+                                    price_df, x="lprice", nbins=10,
+                                    title="수집 상품 최저가격대별 빈도 분포",
+                                    labels={"lprice": "최저 가격 (원)"},
+                                    template="plotly_white",
+                                    color_discrete_sequence=["#1EC800"]
+                                )
+                                st.plotly_chart(fig_hist, use_container_width=True)
+                            with col_r:
+                                mall_counts = df_shop["mallName"].value_counts().reset_index().head(8)
+                                mall_counts.columns = ["쇼핑몰명", "상품 등록수"]
+                                fig_mall = px.bar(
+                                    mall_counts, x="상품 등록수", y="쇼핑몰명", orientation="h",
+                                    title="주요 쇼핑몰별 입점 빈도 (Top 8)", template="plotly_white"
+                                )
+                                st.plotly_chart(fig_mall, use_container_width=True)
+                                
+                            st.markdown("#### 🏷️ 주요 상품 정보 (Top 5)")
+                            for idx, row in df_shop.head(5).iterrows():
+                                col_img, col_info = st.columns([1, 5])
+                                with col_img:
+                                    if row["image"]:
+                                        st.image(row["image"], width=100)
+                                with col_info:
+                                    st.markdown(f"""
+                                    **[{row['title_clean']}]({row['link']})**  
+                                    - 가격: `{int(row['lprice']):,}`원 | 판매몰: `{row['mallName']}`
+                                    """)
+                                st.markdown("---")
+                        else:
+                            st.info("쇼핑 수집 데이터가 존재하지 않습니다.")
+                            
+                    # Tab 3: 소셜 분석
+                    with tab3:
+                        st.markdown("### 📝 블로그 & 카페 소셜 여론")
+                        col_blg, col_cfe = st.columns(2)
+                        
+                        with col_blg:
+                            st.markdown("#### 📄 최근 블로그 글 분석")
+                            if not df_blog.empty:
+                                df_blog["title_clean"] = df_blog["title"].str.replace(r"<[^>]*>", "", regex=True)
+                                df_blog["desc_clean"] = df_blog["description"].str.replace(r"<[^>]*>", "", regex=True)
+                                df_blog["postdate_dt"] = pd.to_datetime(df_blog["postdate"], format="%Y%m%d", errors="coerce")
+                                
+                                date_counts = df_blog["postdate_dt"].value_counts().reset_index()
+                                date_counts.columns = ["작성일", "글 개수"]
+                                date_counts = date_counts.sort_values(by="작성일")
+                                
+                                fig_date = px.bar(date_counts, x="작성일", y="글 개수", title="일자별 블로그 글 발행 분포", template="plotly_white", color_discrete_sequence=["#1EC800"])
+                                st.plotly_chart(fig_date, use_container_width=True)
+                                
+                                for idx, row in df_blog.head(5).iterrows():
+                                    with st.expander(f"📝 {row['title_clean']} ({row['bloggername']})"):
+                                        st.write(row["desc_clean"])
+                                        st.markdown(f"[블로그 원문 이동]({row['link']})")
+                            else:
+                                st.info("블로그 검색 데이터가 없습니다.")
+                                
+                        with col_cfe:
+                            st.markdown("#### 👥 최근 카페 글 분석")
+                            if not df_cafe.empty:
+                                df_cafe["title_clean"] = df_cafe["title"].str.replace(r"<[^>]*>", "", regex=True)
+                                df_cafe["desc_clean"] = df_cafe["description"].str.replace(r"<[^>]*>", "", regex=True)
+                                
+                                cafe_counts = df_cafe["cafename"].value_counts().reset_index().head(8)
+                                cafe_counts.columns = ["카페명", "발행 수"]
+                                fig_cafe = px.bar(cafe_counts, x="발행 수", y="카페명", orientation="h", title="주요 언급 카페 분포 (Top 8)", template="plotly_white")
+                                st.plotly_chart(fig_cafe, use_container_width=True)
+                                
+                                for idx, row in df_cafe.head(5).iterrows():
+                                    with st.expander(f"💬 {row['title_clean']} ({row['cafename']})"):
+                                        st.write(row["desc_clean"])
+                                        st.markdown(f"[카페글 원문 이동]({row['link']})")
+                            else:
+                                st.info("카페 검색 데이터가 없습니다.")
+                                
+                    # Tab 4: 뉴스 분석
+                    with tab4:
+                        if not df_news.empty:
+                            st.markdown("### 📰 최근 뉴스 및 보도 매체 분석")
+                            df_news["title_clean"] = df_news["title"].str.replace(r"<[^>]*>", "", regex=True)
+                            df_news["desc_clean"] = df_news["description"].str.replace(r"<[^>]*>", "", regex=True)
+                            df_news["pub_dt"] = pd.to_datetime(df_news["pubDate"], errors="coerce")
+                            df_news["pub_day"] = df_news["pub_dt"].dt.date
+                            
+                            news_trend = df_news["pub_day"].value_counts().reset_index()
+                            news_trend.columns = ["보도일자", "기사수"]
+                            news_trend = news_trend.sort_values("보도일자")
+                            
+                            fig_news = px.line(news_trend, x="보도일자", y="기사수", title="최근 일자별 언론 보도 추이", template="plotly_white", markers=True)
+                            st.plotly_chart(fig_news, use_container_width=True)
+                            
+                            st.markdown("#### 📰 주요 뉴스 헤드라인 (Top 5)")
+                            for idx, row in df_news.head(5).iterrows():
+                                st.markdown(f"""
+                                **[{row['title_clean']}]({row['link']})**  
+                                _보도 시간: {row['pubDate']}_  
+                                > {row['desc_clean']}  
+                                ---
+                                """, unsafe_allow_html=True)
+                        else:
+                            st.info("뉴스 데이터가 존재하지 않습니다.")
+                            
+                except Exception as e:
+                    st.error(f"데이터 수집 및 분석 중 오류가 발생하였습니다: {e}")
+
 def intro_page():
     st.markdown("<div class='main-title'>🏠 대시보드 소개 및 가이드</div>", unsafe_allow_html=True)
     st.markdown("""
@@ -498,6 +689,7 @@ pages = {
         st.Page(shopping_trend_page, title="쇼핑 트렌드 분석", icon="🛍️", url_path="shopping_trend")
     ],
     "검색 데이터 다차원 분석": [
+        st.Page(unified_search_page, title="통합 검색 분석", icon="🔍", url_path="unified"),
         st.Page(shop_page, title="쇼핑 검색 분석", icon="🛒", url_path="shop"),
         st.Page(blog_page, title="블로그 검색 분석", icon="📝", url_path="blog"),
         st.Page(cafe_page, title="카페글 검색 분석", icon="👥", url_path="cafe"),
