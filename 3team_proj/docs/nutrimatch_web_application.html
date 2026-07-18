@@ -2215,16 +2215,27 @@
             profileLogs.push("⚡ <strong>스포츠/고강도 에너지 방출:</strong> 땀과 수분 배출이 격렬하여 대사가 빠른 수용성 <strong>비타민B군, 비타민C</strong>의 최적 수용 임계치가 30%~50% 상향 보정되었습니다.");
         }
 
-        // 장노년층 프로필 조절
-        if (age === '50s' || age === '60s+') {
+        // 2025 KDRI 연령별 섭취 기준 적용
+        if (age === 'under_20') {
+            activeGuidelines["칼슘"].maxSafe = 140; 
+            activeGuidelines["칼슘"].danger = 200;
+            activeGuidelines["칼슘"].desc += " [KDRI 2025: 청소년기는 뼈 성장이 급격한 시기로, 칼슘 상한 한계가 성인 대비 유연하게 적용되었습니다.]";
+            profileLogs.push("📈 <strong>10대 성장기 KDRI 기준:</strong> 골격 형성을 위해 <strong>칼슘</strong>의 권장 섭취 상한 한계치가 상향 조정되어 반영되었습니다.");
+        } else if (age === '20s' || age === '30s' || age === '40s') {
+            activeGuidelines["비타민B군"].maxSafe = 400; 
+            activeGuidelines["비타민B군"].desc += " [KDRI 2025: 성인기는 활발한 에너지 대사와 피로 회복을 위해 비타민 B군의 상한 수용치가 상향 적용되었습니다.]";
+            activeGuidelines["비타민C"].maxSafe = 600; 
+            profileLogs.push("🏃‍♂️ <strong>20~40대 청장년기 KDRI 기준:</strong> 에너지 대사 활성화를 위해 <strong>비타민 B군 및 C</strong>의 일일 안전 수용폭을 높게 반영하였습니다.");
+        } else if (age === '50s' || age === '60s+') {
             activeGuidelines["칼슘"].maxSafe = 90; 
             activeGuidelines["칼슘"].danger = 130;
-            activeGuidelines["칼슘"].desc += " [장·노년층: 고용량 칼슘 단일 복용 시 심혈관 석회화를 유도할 수 있으므로 90% 이내 안심 섭취가 권장됩니다.]";
+            activeGuidelines["칼슘"].desc += " [KDRI 2025: 장·노년층은 고용량 칼슘의 혈관 석회화 우려로 칼슘 상한 기준(700~800mg)이 더욱 엄격하게 조절되었습니다.]";
 
             activeGuidelines["비타민D"].maxSafe = 250; 
             activeGuidelines["비타민D"].danger = 400;
+            activeGuidelines["비타민D"].desc += " [KDRI 2025: 근감소증 및 골다공증 예방을 위해 비타민 D 권장 섭취량(15μg)이 상향됨에 따라 안전 한계치도 넓게 허용됩니다.]";
 
-            profileLogs.push("👵👴 <strong>장·노년층 프로필:</strong> 골격 보존을 위해 <strong>비타민D</strong> 한계치는 상향 완화되었으나, 혈관 석회화 방지를 위해 <strong>칼슘</strong> 상한 기준은 안전하게 조여졌습니다.");
+            profileLogs.push("👵👴 <strong>50대 이상 KDRI 기준:</strong> 노화 예방을 위해 <strong>비타민D</strong> 한계치는 상향 완화되었으나, 심혈관 부담 경감을 위해 <strong>칼슘</strong> 상한 기준은 엄격히 제한되었습니다.");
         }
 
         if (profileLogs.length > 0) {
