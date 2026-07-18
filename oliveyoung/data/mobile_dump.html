@@ -1,0 +1,2312 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
+	<meta http-equiv="Content-Script-Type" content="text/javascript">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+	<meta name="format-detection" content="telephone=no">
+
+	<meta property="og:type" content="website" />
+
+	
+		
+		
+			<meta property="og:title" content="건강식품 > 영양제 | 올리브영" />
+		
+	
+
+	
+	
+	
+		
+		
+			
+		
+		
+	
+
+	
+		
+		
+		
+			<meta property="og:url" content="https://m.oliveyoung.co.kr/m/main/main.do" />
+		
+	
+	
+		
+	
+
+	
+		
+		
+		
+			<meta property="og:image" content="https://mstatic.oliveyoung.co.kr/mc-static-root/image/comm/oliveyoung_logo_512.png"/>
+			
+				
+				
+				
+					<meta property="og:description" content="대한민국 NO.1 헬스&뷰티 스토어 OLIVEYOUNG"  />
+				
+			
+		
+	
+
+	<meta name="facebook-domain-verification" content="e6vbg9ygxkui4o2owlhxnwptf0mdk2" />
+	<link rel="apple-touch-icon-precomposed" href="http://mstatic.oliveyoung.co.kr/mc-static-root/image/comm/OY_favicon_114.png" />
+	<link rel="apple-touch-icon" href="https://mstatic.oliveyoung.co.kr/mc-static-root/image/comm/OY_favicon_72.png" />
+	<link rel="shortcut icon" href="https://mstatic.oliveyoung.co.kr/mc-static-root/image/comm/OY_favicon_72.png" />
+	<link rel="shortcut icon" type="image/x-icon" href="https://mstatic.oliveyoung.co.kr/mc-static-root/image/comm/favicon.ico" />
+	<title>건강식품 > 영양제 | 올리브영</title>
+	<meta name="title" content="건강식품 > 영양제 | 올리브영" />
+	<meta name="description" content="올리브영 온라인몰 카테고리 상품 페이지 입니다." />
+	
+
+
+	<link rel="stylesheet" href="https://mstatic.oliveyoung.co.kr/mc-static-root/css/style.css?dumm=20260618095511"/>
+
+	
+	
+
+
+	<script>
+		var _tmsPushUrl = "https://pmsg.oliveyoung.co.kr/msg-api/user/mkt-flag";
+		var _baseUrl = 'https://m.oliveyoung.co.kr/m/';
+		var _appBaseUrl = 'https://m.oliveyoung.co.kr/m/';
+		var _plainUrl = 'https://m.oliveyoung.co.kr/m/';
+		var _secureUrl = 'https://m.oliveyoung.co.kr/m/';
+		var _jsUrl = 'https://mstatic.oliveyoung.co.kr/mc-static-root/js/';
+		var _cssUrl = 'https://mstatic.oliveyoung.co.kr/mc-static-root/css/';
+		var _imgUrl = 'https://mstatic.oliveyoung.co.kr/mc-static-root/image/';
+		var _imgUrlLocale = 'https://mstatic.oliveyoung.co.kr/mc-static-root/image/ko/';
+		var _cabUrl = 'https://mstatic.oliveyoung.co.kr/mc-static-root/cab/';
+		var _stampEvtUrl = '500000100140038';
+		var _isLogin = false;
+		var _isAdultVerification = 'null' == 'Y' ? true : false; // 성인인증 여부
+		var _genSctCd  = 'null' == 'A' ? 'M' :  ('null' == 'B' ? 'F' : '');
+		var _goodsImgUploadUrl = 'https://image.oliveyoung.co.kr/cfimages/cf-goods/uploads/images/thumbnails/';
+		var _mainUrl = 'main/main.do';
+		var _goodsImg85 = '85';
+		var _goodsImg550 = '550';
+		var _gdasImgUploadUrl = 'https://image.oliveyoung.co.kr/uploads/images/gdasEditor/';
+		var _profileImgUploadUrl = 'https://image.oliveyoung.co.kr/uploads/images/mbrProfile/';
+		var _cdnImgUrl = '//image.oliveyoung.co.kr/uploads/';
+		var _fileUploadUrl = 'https://image.oliveyoung.co.kr/uploads/images/';
+		var _displayImageUploadUrl = 'https://image.oliveyoung.co.kr/uploads/images/display/';
+		var _gdasMaxPoint = '150';
+		var _eplgUploadUrl = 'https://image.oliveyoung.co.kr/uploads/images/epilogue/';
+		var _httpUrl = 'https://mstatic.oliveyoung.co.kr/mc-static-root/html/';
+		var _gaUaKey = "UA-92021806-2";
+		var _wlDomain = "m.oliveyoung.co.kr";
+		var _optionImageUrl = 'https://image.oliveyoung.co.kr/cfimages/cf-goods/uploads/images/';
+		var _thumbnailUrl = 'https://image.oliveyoung.co.kr/cfimages/cf-goods/uploads/images/thumbnails/';
+
+		var _redirectFoBaseUrl = 'https://www.oliveyoung.co.kr/store'; // ston redirect 처리위해 추가
+		var _redirectMoBaseUrl = 'https://m.oliveyoung.co.kr/m'; // ston redirect 처리위해 추가
+		var _redirectMaBaseUrl = 'https://m.oliveyoung.co.kr/m'; // ston redirect 처리위해 추가
+		var _oldAppUrl = 'https://ma.oliveyoung.co.kr/m';
+
+		var _stonUseYnReqHeader = 'N'; // ston redirect 처리위해 추가
+
+		var _offlineGoodsNo = 'A000000000000';
+		var _templateUrl = 'https://mstatic.oliveyoung.co.kr/mc-static-root/template/';
+        var _staticUrl = 'https://mstatic.oliveyoung.co.kr/';
+	</script>
+
+  
+	  
+	  <script type="text/javascript" src="https://mstatic.oliveyoung.co.kr/mc-static-root/js/header.js?dumm=20260618095511"></script>
+  
+  
+
+	<script type="text/javascript" src="https://mstatic.oliveyoung.co.kr/mc-static-root/js/common/popup/zipcodeApi.js?dumm=20260618095511"></script>
+	<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+</head>
+
+
+<body id=''>
+
+<!-- #mWrapper -->
+
+<div id="mWrapper"  >
+	<div id="skip_navi">
+		<a href="#mContents">본문 바로가기</a>
+	</div>
+	
+	
+	
+	
+	
+
+	
+		
+	
+
+	
+		
+		
+			
+		
+	
+
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+		
+
+<div class="sHeader new type-c4 bdn" id="mHeader">
+	<h2 class="tit" id="subTitle"></h2>
+	<a href="#" class="btnBack" id="sHeaderBackBtn" data-ref-clickId="other" aria-label="뒤로가기">
+		<span class="icon">&nbsp;</span>
+	</a>
+	<div class="top_utill">
+		<a href="#" class="search" id="sHeaderSearch" data-attr="^헤더^검색" data-ref-linkurl="/m/mtn/search?t_page=카테고리관_중&t_click=검색입력창&t_1st_category_type=영양제" data-entrysource="카테고리관_중" data-clicksource="검색입력창" data-customproperty="1st_category"  aria-label="검색">
+			<span class="icon">&nbsp;</span>
+		</a>
+		
+		<a href="#" class="basket" id="headerBasket" data-ref-clickId="other" data-attr="카테고리관_중^헤더^장바구니" data-entrysource="카테고리관_중" aria-label="장바구니">
+			<span class="icon">&nbsp;</span>
+			
+		</a>
+	</div>
+</div>
+	
+	
+	
+	
+
+	<div id="todayDeliveryShippingContainer"></div>
+
+	<input type="hidden" id="kakaoApiKey" value="24077b12ac18b11a96696382ccaa7138"/>
+	<input type="hidden" id="iphoneAppDownUrl" value="https://itunes.apple.com/kr/app/ollibeuyeong/id873779010?l=kr&mt=8"/>
+	<input type="hidden" id="androidAppDownUrl" value="https://play.google.com/store/apps/details?id=com.oliveyoung&hl=ko"/>
+	<script>
+		$(window).load(function(){
+			if(!_isLogin){
+			   localStorage.removeItem("setTrackEvent");
+			}
+
+			if(_isLogin && "Y" != localStorage.getItem("setTrackEvent")){ //로그인되어 있고 트랙이벤트를 호출하지 않은 경우
+				var af_member_level_off = ""; //회원 오프라인 등급
+				var af_member_level_on = ""; //회원 온라인 등급
+
+				common.app.callTrackEvent('login',{ 'af_member_level_off' : af_member_level_off, 'af_member_level_on' : af_member_level_on});
+				localStorage.setItem("setTrackEvent", "Y");
+			}
+		});
+		$(window).ready(function(){
+			$('#mWrapper').css('visibility', 'visible');
+
+			//넷퍼넬 키 반환 호출(전역)
+			NetFunnel_Complete();
+
+			//넷퍼넬 키 반환 호출(main.do) act_06
+			var checkNfl = "";
+			if(checkNfl != undefined && checkNfl != "" ){
+				NetFunnel_Complete({cookie_id:"NetFunnel_Main", action_id:"act_06"});
+			}
+
+			// set gnb menu sessionStorage
+			var gnbMenuList = new Array();
+			if ($('#mGnb').length) {
+				$('#mGnb > ul > li').each(function (idx, item) {
+					gnbMenuList.push({
+						index: $(this).data('gnb-index')
+						, id: $(this).data('gnb-id')
+						, code: $(this).data('gnb-code')
+						, name: $(this).data('gnb-name')
+						, url: $(this).data('ref-url')
+					})
+				});
+			}
+			sessionStorage.setItem('gnbMenus', JSON.stringify(gnbMenuList));
+
+			common.cart.updHeaderCartCnt();
+			try{
+				if(_stonUseYnReqHeader == "Y"){
+					common.cart.updStonArea(); // footer 로그인노출영역 체크, for ston
+				}
+			}catch(e){}
+
+			common.header.init();
+
+			
+				var subTitle = $("#titConts .tit").html();
+				if (subTitle && subTitle.length > 0) {
+					$("#subTitle").html(subTitle);
+				}
+			
+		});
+	</script>
+
+	<script type="text/javascript" src="//logger.ai.oliveyoung.co.kr/js/eglpcidgen.min.js"></script>
+	<script src="https://mstatic.oliveyoung.co.kr/mc-static-root/js//common/libs/sha256.js"></script>
+	<script type="text/javascript">
+		try {
+			var recoSsoMbrNo = 'null';
+			var recoCuid = '8b47cf9f-efd1-48e4-8f83-10ee8a07945b';
+			var hashedRecoSsoMbrNo = CryptoJS.SHA256(recoSsoMbrNo).toString();
+			var encryptedRecoSsoMbrNo = 'null';
+
+			if(recoSsoMbrNo === 'null'){
+				hashedRecoSsoMbrNo = "";
+			}
+
+			var recoDevice = 'MW';
+			if (common.app != undefined  && common.app.appInfo != undefined && common.app.appInfo.isapp) {
+				if (common.app.appInfo.ostype == "10") {
+					recoDevice = 'MI';
+				} else if (common.app.appInfo.ostype == "20") {
+					recoDevice = 'MA';
+				} else {}
+			}
+		}catch(e){}
+		</script>
+		<script type="text/javascript" src="https://mstatic.oliveyoung.co.kr/mc-static-root/js/curation/curation.js?dumm=20260618095511" charset="utf-8"></script>
+
+		<script type="text/javascript">
+			var gtmMbrNoForBraze = 'null';
+			var ssoMbrNo = '';
+			var hashedGtmMbrNoForBraze;
+
+			try {
+				common.initBraze('a288b8d5-d6ca-4ffb-87ec-92b04ab45e8a', 'https://sdk.iad-05.braze.com/api/v3', gtmMbrNoForBraze, ssoMbrNo);
+
+				common.callBrazeAgreeTerm();
+			} catch (_) {
+				console.warn('Braze init error');
+			}
+		</script>
+
+		<script>
+			! function(b, e, f, g, a, c, d) {
+				b.fbq || (a = b.fbq = function() {
+					a.callMethod ? a.callMethod.apply(a, arguments) : a.queue.push(arguments)
+				}, b._fbq || (b._fbq = a), a.push = a, a.loaded = !0, a.version = "2.0", a.queue = [], c = e.createElement(f), c.async = !0, c.src = g, d = e.getElementsByTagName(f)[0], d.parentNode.insertBefore(c, d))
+			}(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+			fbq("init", "1926423667616265");
+			fbq("track", "PageView");
+		</script>
+
+
+
+<!-- Hackle init Script Start -->
+<script>
+    var HACKLE_SDK_KEY = 'g4Zz62g3yqdVqhACxs98irm6YREHlv5K';
+    var HACKLE_EXPERIMENT_KEY = 10;
+    var HACKLE_HASHED_MBR_NO = '';
+
+    window.hackleExperimentKey = HACKLE_EXPERIMENT_KEY;
+    window.hackleHashedMbrNo = HACKLE_HASHED_MBR_NO ? CryptoJS.SHA256(HACKLE_HASHED_MBR_NO).toString() : '';
+
+    // vstr_id 결정: 앱(3.50.0+)은 네이티브 콜백 + localStorage 캐시, 그 외는 df_vi
+    window.hackleVstrIdReady = (function () {
+        var APP_VSTRID_KEY = 'app_vstrid';
+        var APP_VSTRID_MIN_VER = '3.50.0';
+        var APP_VSTRID_TIMEOUT_MS = 1000;
+
+        function getDfVi() {
+            try {
+                var raw = localStorage.getItem('df_vi');
+                if (raw) {
+                    var parsed = JSON.parse(raw);
+                    return (parsed && parsed.value) ? parsed.value : '';
+                }
+            } catch (e) {}
+            return '';
+        }
+
+        // 앱이 {"value":"uuid"} JSON 래퍼/객체로 보내거나 plain string으로 보내는 경우 모두 처리
+        function unwrapVstrid(input) {
+            try {
+                if (typeof input === 'string') {
+                    if (input.charAt(0) === '{') {
+                        var parsed = JSON.parse(input);
+                        return (parsed && parsed.value) ? parsed.value : '';
+                    }
+                    return input;
+                }
+                if (input && typeof input === 'object') {
+                    return input.value || '';
+                }
+            } catch (e) {}
+            return '';
+        }
+
+        function parseAppVer() {
+            // UA 토큰명이 'appver' / 'appVer' / 'AppVer' 등 다양할 수 있어 케이스 무관 매치
+            var ua = (navigator.userAgent || '').split(' ');
+            for (var i = 0; i < ua.length; i++) {
+                var pair = ua[i].split('/');
+                if (pair[0] && pair[0].toLowerCase() === 'appver' && pair[1]) return pair[1];
+            }
+            return null;
+        }
+
+        function gteVersion(v1, v2) {
+            var a = v1.split('.'), b = v2.split('.');
+            var len = Math.max(a.length, b.length);
+            for (var i = 0; i < len; i++) {
+                var n1 = Number(a[i] || 0), n2 = Number(b[i] || 0);
+                if (n1 < n2) return false;
+                if (n1 > n2) return true;
+            }
+            return true;
+        }
+
+        var appVer = parseAppVer();
+
+        // 비앱(모바일웹): 기존 df_vi 사용
+        if (!appVer) {
+            return Promise.resolve(getDfVi());
+        }
+
+        // 앱 구버전(3.50.0 미만): vstrid 미전송
+        if (!gteVersion(appVer, APP_VSTRID_MIN_VER)) {
+            return Promise.resolve('');
+        }
+
+        // 앱 3.50.0 이상: 캐시 hit 시 동기 즉시 (이전 잘못된 JSON 형식 캐시도 방어적 unwrap)
+        try {
+            var cached = unwrapVstrid(localStorage.getItem(APP_VSTRID_KEY));
+            if (cached) return Promise.resolve(cached);
+        } catch (e) {
+            if (window.DD_RUM && typeof DD_RUM.addError === 'function') {
+                DD_RUM.addError(e, { source: 'hackle_app_vstrid', stage: 'read' });
+            }
+        }
+
+        // 캐시 miss: 네이티브 콜백 + 1초 타임아웃 (타임아웃 시 df_vi fallback, 캐시 저장 X)
+        return new Promise(function (resolve) {
+            var settled = false;
+            var done = function (value, shouldCache) {
+                if (settled) return;
+                settled = true;
+                clearTimeout(timer);
+                if (shouldCache && value) {
+                    try {
+                        localStorage.setItem(APP_VSTRID_KEY, JSON.stringify({ value: value }));
+                    } catch (e) {
+                        if (window.DD_RUM && typeof DD_RUM.addError === 'function') {
+                            DD_RUM.addError(e, { source: 'hackle_app_vstrid', stage: 'write' });
+                        }
+                    }
+                }
+                resolve(value || '');
+            };
+
+            var timer = setTimeout(function () { done(getDfVi(), false); }, APP_VSTRID_TIMEOUT_MS);
+
+            window.handleVisitorId = function (visitorId) {
+                var uuid = unwrapVstrid(visitorId);
+                if (uuid) done(uuid, true);
+                else done(getDfVi(), false);
+            };
+
+            try {
+                if (window.App && typeof window.App.requestVisitorId === 'function') {
+                    window.App.requestVisitorId();
+                } else if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.requestVisitorId) {
+                    window.webkit.messageHandlers.requestVisitorId.postMessage({});
+                } else {
+                    done(getDfVi(), false);
+                }
+            } catch (e) {
+                done(getDfVi(), false);
+            }
+        });
+    })();
+</script>
+<script>
+    !function(e,t){var n,a=3e3,c=!1,l=[];function r(){}r.prototype.onReady=function(e,t){var n={block:e,timeout:t};l.push(n)},r.prototype.setUserId=function(e){n=e},e.Hackle=e.Hackle||new r,e.hackleClient=e.hackleClient||new r;var o=setInterval(function(){if(c){clearInterval(o);for(var t=0;t<l.length;t++)
+    e.hackleClient.onReady(l[t].block,l[t].timeout);l.length=0}(a-=50)<0&&clearInterval(o)},50),i=t.createElement("script");i.type="text/javascript",i.crossOrigin="anonymous",i.src="https://cdn.jsdelivr.net/npm/@hackler/javascript-sdk@11.55.2/lib/index.browser.umd.min.js",
+    i.async=!0;var s=t.getElementsByTagName("script")[0];s.parentNode.insertBefore(i,s),i.onload=function(){e.hackleVstrIdReady.then(function(v){e.hackleVstrId=v||'';e.Hackle=Hackle;n&&Hackle.setUserId(n);e.hackleClient=Hackle.createInstance(HACKLE_SDK_KEY);c=!0});},i.onerror=function(){clearInterval(o)}}(window,document);
+</script>
+<!-- Hackle init Script End -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+	
+	<script type="text/javascript" src="https://mstatic.oliveyoung.co.kr/mc-static-root/js/javascripts.js?dumm=20260618095511"></script>
+  
+  
+
+	<script type="text/javascript">
+		function isAllowedTracingUrls (url) {
+			const isOliveyoung = url.indexOf("oliveyoung.co.kr") > -1;
+			// [240123. 추가] 데이터플랫폼 API는 datadog 전송하지 않도록 처리
+			const isDataplatform = url.indexOf('https://api.dp.oliveyoung.co.kr') > -1
+			return isOliveyoung && !isDataplatform;
+		}
+	</script>
+	
+		
+		
+		
+			<script>
+				(function(h,o,u,n,d) {
+					h=h[d]=h[d]||{q:[],onReady:function(c){h.q.push(c)}}
+					d=o.createElement(u);d.async=1;d.src=n
+					n=o.getElementsByTagName(u)[0];n.parentNode.insertBefore(d,n)
+				})(window,document,'script','https://www.datadoghq-browser-agent.com/datadog-rum.js','DD_RUM')
+				DD_RUM.onReady(function() {
+					DD_RUM.init({
+						clientToken: 'pubc89a173fb013152879aea4ea5580abcb',
+						applicationId: '4a379cad-dfb2-4a67-930e-6416ebc206b1',
+						site: 'datadoghq.com',
+						service:'oympprd',
+						env:'prd',
+						// Specify a version number to identify the deployed version of your application in Datadog
+						// version: '1.0.0',
+						sampleRate: 5,
+						replaySampleRate: 0,
+						premiumSampleRate : 5,
+						trackInteractions: true,
+						allowedTracingUrls: isAllowedTracingUrls,
+					});
+
+					DD_RUM.setUser({
+						id: 'null',
+						name: ''
+					});
+				});
+			</script>
+		
+		
+	
+
+<script>
+	// * [CJOYDATA-5785] 데플팀 요청: referrer로그
+	$(document).ready(function() {
+		var referrer = $.referrer ? $.referrer.getReferrerValue() : null;
+		var isValid = $.referrer ? $.referrer.isInvalidString(referrer) : null;
+		if (isValid) return;
+		if(referrer) {
+			callLogEvent("DOMContentLoaded", {
+				log_channel: "oy",
+				referer: referrer,
+			});
+		}
+	});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="https://nsso.cjone.com/findCookieSecuredV2.jsp?cjssoq=DdXiAqgFOYSn5Im%2BEKXo57KDpIpIWvL0s3RCjP%2Fv%2F3KUaAZt%2FStakwVgoEQxJ2%2BdFvcSXTM3R976RX57fOhutDZsQ3ozM0QySitQd0Fqb0FWRTJtaCtjVm9CbXhRN1hOMTlPdFY1NjErZTNMVzQvVUhlWXZzNVJyYmVrOG1BWkRLLy9KeE1qd0l1anYKUDUwdGZaZ29NQT09"></script>
+
+  
+
+<form name="ssologinfrm" action="https://m.oliveyoung.co.kr/m/login/ssoLogin.do" method="post">
+<input type="hidden"  id="cjssoq" name="cjssoq" />
+</form>
+<script>
+	var ssoCheck = "null";
+	var cjssoq = "null";
+
+	/* console.log('ssocheck:'+ssoCheck); */
+	//세션 정보가 없을경우 
+	if( !_isLogin || ssoCheck !='N'){
+		//SSO 쿠키가 있고 정상적으로 토큰을 밥급받았을 경우
+		if((typeof _cjssoEncData) != "undefined" && _cjssoEncData !=""){
+		    sessionStorage.clear();
+			//ajax를 사용해서 _cjssoEncData 를 처리하여 사용하셔도 무방합니다.
+			/* alert("111 SSO쿠키를 조사해보니 있어서 확인하러 갑니다11."+_cjssoEncData); */
+			if(_cjssoEncData != cjssoq){
+				document.getElementById("cjssoq").value = _cjssoEncData ;
+				document.ssologinfrm.submit();
+			}
+		}else{
+			 //alert("222세션도 없고 쿠키도 없어서 해당 페이지로 갑니다."); 
+		}
+	}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				
+					<div id="mContainer">
+						<div id="titConts">
+							<h2 class="tit"> 건강식품 </h2>
+							<button type="button" id="backBtn">Back Button</button>
+						</div>
+						
+						<div id="mContents" class="mCategory">
+								<div class="tabs">
+									<div id="mCategoryList" class="ct-primary-tab">
+										<!-- Start: 탭 Toggle 버튼 -->
+										<button type="button" class="btn-tab-toggle" data-uprcategory="건강식품">
+											<span class="oyblind">중카테고리 리스트 펼쳐보기</span>
+										</button>
+										<ul class="ct-tab-list" role="tablist" aria-label="중카테고리 리스트">
+											<li class="ct-tab-menu">
+												<a href="javascript:;" role="tab" class="10000020001" data-index="" data-attr='카테고리관^중카테고리리스트^전체' data-tracking-param="t_page=카테고리관&t_click=카테고리관_대카테고리&t_1st_category_type=건강식품">
+													<span>전체</span>
+												</a>
+											</li>
+											
+												<li class="ct-tab-menu">
+													<a href="javascript:;" role="tab" class="100000200010015" data-index="1"  data-attr="카테고리관^카테고리리스트^비타민^1" data-trk="/" data-tracking-param="t_page=카테고리관&t_click=카테고리상세_중카테고리&t_1st_category_type=대_건강식품&t_2nd_category_type=중_비타민"><span>비타민</span></a>
+												</li>
+											
+												<li class="ct-tab-menu">
+													<a href="javascript:;" role="tab" class="100000200010025" data-index="2"  data-attr="카테고리관^카테고리리스트^영양제^2" data-trk="/" data-tracking-param="t_page=카테고리관&t_click=카테고리상세_중카테고리&t_1st_category_type=대_건강식품&t_2nd_category_type=중_영양제"><span>영양제</span></a>
+												</li>
+											
+												<li class="ct-tab-menu">
+													<a href="javascript:;" role="tab" class="100000200010024" data-index="3"  data-attr="카테고리관^카테고리리스트^유산균^3" data-trk="/" data-tracking-param="t_page=카테고리관&t_click=카테고리상세_중카테고리&t_1st_category_type=대_건강식품&t_2nd_category_type=중_유산균"><span>유산균</span></a>
+												</li>
+											
+												<li class="ct-tab-menu">
+													<a href="javascript:;" role="tab" class="100000200010023" data-index="4"  data-attr="카테고리관^카테고리리스트^슬리밍/이너뷰티^4" data-trk="/" data-tracking-param="t_page=카테고리관&t_click=카테고리상세_중카테고리&t_1st_category_type=대_건강식품&t_2nd_category_type=중_슬리밍/이너뷰티"><span>슬리밍/이너뷰티</span></a>
+												</li>
+											
+										</ul>
+										<div class="ct-tab-dim"></div>
+									</div>
+								<div id="mSubGnb" class="ct-secondary-tab swiper-container">
+								
+									
+									<ul class="sub_gnb_cate ct-tab-list swiper-wrapper" role="tablist">
+									
+									
+								
+										<li class="swiper-slide">
+											<a href="javascript:;" role="tab" class="100000200010025" data-attr='카테고리상세^카테고리리스트^전체' dataNm= '전체'>
+												<span>전체</span>
+											</a>
+										</li>
+									
+										
+										<li class="swiper-slide">
+											<a href="javascript:;" role="tab" class="1000002000100250011" data-attr='카테고리상세^카테고리리스트^밀크시슬' dataNm= '밀크시슬'>
+												<span>밀크시슬</span>
+											</a>
+										</li>
+										
+									
+										
+										<li class="swiper-slide">
+											<a href="javascript:;" role="tab" class="1000002000100250012" data-attr='카테고리상세^카테고리리스트^칼슘/마그네슘/아연' dataNm= '칼슘/마그네슘/아연'>
+												<span>칼슘/마그네슘/아연</span>
+											</a>
+										</li>
+										
+									
+										
+										<li class="swiper-slide">
+											<a href="javascript:;" role="tab" class="1000002000100250013" data-attr='카테고리상세^카테고리리스트^오메가/루테인' dataNm= '오메가/루테인'>
+												<span>오메가/루테인</span>
+											</a>
+										</li>
+										
+									
+										
+										<li class="swiper-slide">
+											<a href="javascript:;" role="tab" class="1000002000100250014" data-attr='카테고리상세^카테고리리스트^철분/엽산' dataNm= '철분/엽산'>
+												<span>철분/엽산</span>
+											</a>
+										</li>
+										
+									
+										
+										<li class="swiper-slide">
+											<a href="javascript:;" role="tab" class="1000002000100250006" data-attr='카테고리상세^카테고리리스트^홍삼' dataNm= '홍삼'>
+												<span>홍삼</span>
+											</a>
+										</li>
+										
+									
+										
+										<li class="swiper-slide">
+											<a href="javascript:;" role="tab" class="1000002000100250016" data-attr='카테고리상세^카테고리리스트^키즈 영양제' dataNm= '키즈 영양제'>
+												<span>키즈 영양제</span>
+											</a>
+										</li>
+										
+									
+										
+										<li class="swiper-slide">
+											<a href="javascript:;" role="tab" class="1000002000100250017" data-attr='카테고리상세^카테고리리스트^PMS 케어' dataNm= 'PMS 케어'>
+												<span>PMS 케어</span>
+											</a>
+										</li>
+										
+									
+										
+										<li class="swiper-slide">
+											<a href="javascript:;" role="tab" class="1000002000100250015" data-attr='카테고리상세^카테고리리스트^영양제 기타' dataNm= '영양제 기타'>
+												<span>영양제 기타</span>
+											</a>
+										</li>
+										
+									
+									</ul>
+								</div>
+							</div>
+							<div class="area-goods ct-sorting-area">
+
+								<!-- [D] [CJOYSB-2867] :: 중카테고리관 성과형 광고 구좌 추가 -->
+									<div class="molocoBox jq_molocoBox" style="display:none;">
+										<div class="head">
+											<h3 class="tit"><span class="userName jq_userName">고객님을 위한 인기 상품</span><span class="static"></span></h3>
+											<a href="#" id="adInfo" class="adInfo">
+												AD
+											</a>
+											<div id="adTooltip" class="adTooltip"><!-- [D] : on 클래스 추가할 때, tooltip 나타남 -->
+												<p>고객님의 쇼핑 이력을 바탕으로<br>맞춤형 광고 상품을 추천 드려요</p>
+												<a href="#" id="closeTooltip" class="close">닫기</a>
+											</div>
+										</div>
+										<div id="molocoSwiper" class="jq_cnt molocoCategory main-curation goods_ver type3 swiper-container swiper-container-horizontal swiper-container-free-mode swiper-container-android"><!-- [D] : 상품 갯수가 2개라면 클래스 type3를 type2로 변경 -->
+											<ul id="molocoInfoList" class="goods-list-container swiper-wrapper">
+												<!-- 몰로코 상품정보 append 부분-->
+											</ul>
+											<div class="swiper-scrollbar"><div class="swiper-scrollbar-drag"></div></div>
+										</div>
+									</div>
+
+								<!-- //[D] [CJOYSB-2867] :: 중카테고리관 성과형 광고 구좌 추가 -->
+
+								<!-- 몰로코 템플릿 -->
+								<template id="moloco-template">
+									<li class="goods-list swiper-slide jq_molocoGoods">
+										<a class="thumb jq_aTag"
+										   data-ref-goodsno="A000000111389"
+										   data-ref-goodsNm=""
+										   name="BrandA000586_Mdpick"
+										   data-index="1"
+										   data-ref-dispcatno="90000020208"
+										   data-ref-itemno="001"
+										   moloco-impressionTrackers=""
+										   moloco-clickTrackers=""
+										   moloco-itemId=""
+										   moloco-adAccountId=""
+										   moloco-campaignId=""
+										   moloco-currency=""
+										   moloco-amountMicro=""
+										   moloco-trackId=""
+										   data-tracking-param=""
+										>
+											<img
+													data-original="https://image.oliveyoung.co.kr/uploads/images/goods/400/10/0000/0011/A00000011138915ko.jpg?l=ko&amp;SF=webp"
+													src="https://image.oliveyoung.co.kr/uploads/images/goods/400/10/0000/0011/A00000011138915ko.jpg?l=ko&amp;SF=webp"
+													alt=""
+													class="pic-thumb completed-scroll-lazyload jq_img"
+													onerror="common.errorImg(this);"
+											/>
+										</a>
+										<div class="info">
+											<p class="jq_goodsNm"><u>BEST</u>나르시소 로드리게즈 포 허 플뢰르 머스크 오드퍼퓸 30ml</p>
+											<s class="jq_originalPrice">86,000<em>원</em></s><i class="jq_discountRate">31%</i><span class="jq_priceToPay">59,300<em>원</em></span>
+											<ul class="flag jq_flag">
+						 							<!--  플래그 설정부분 -->
+											</ul>
+											<div class="btn_group">
+												<button type="button" class="like jq_like" data-ref-goodsno="A000000111389"><span class="blind">찜하기</span></button>
+												<button type="button" class="cart jq_cart" data-goods-no="A000000111389" data-item-no="001"><span class="blind">장바구니</span></button>
+											</div>
+										</div>
+									</li>
+								</template>
+
+
+
+								<div class="midCateArea bb">
+									<div class="itemSum"></div>
+									<button type="button" class="btn-select-toggle">인기순</button>
+									<div class="ct-sort-dimmer">
+										<div class="sort-layer">
+											<div class="sort-layer-head">
+												<strong class="sort-layer-lid">정렬</strong>
+												<button type="button" class="btn-close" aria-label="닫기"></button>
+											</div>
+											<ul class="brand-sort-list"></ul>
+										</div>
+									</div>
+										<!-- [D] select option 값과 brand-sort-list 리스트 값 순서와 텍스트 동일해야함 -->
+
+									
+
+
+
+								</div>
+								
+								
+								
+								<div class="midFilterArea">
+									<ul class="filter-list">
+										<li class="filter-item show"><!-- [D] 필터 노출시 .show 추가 -->
+											<input type="radio" id="allGoods" name="benefitFilter" checked>
+											<label for="allGoods">전체</label>
+										</li>
+										<li class="filter-item">
+											<input type="radio" id="discountGoods" name="benefitFilter">
+											<label for="discountGoods">세일</label>
+										</li>
+										<li class="filter-item">
+											<input type="radio" id="associatedPromotion" name="benefitFilter">
+											<label for="associatedPromotion">1+1</label>
+										</li>
+										<li class="filter-item">
+											<input type="radio" id="presentGoods" name="benefitFilter">
+											<label for="presentGoods">증정</label>
+										</li>
+									</ul>
+								</div>
+								
+								<div class="sch_no_data cate" id="ctgNoData" style="display:none">
+									<p class="lineZ"><span id="catName">영양제</span> 카테고리에 <span class="ftml">0</span>개의 상품이<br>등록되어 있습니다.</p>
+								</div>
+
+								
+								<section id="oneTwo-list" class="goods_ver type1">
+									<ul id="category-container" class="goods-list-container">
+									</ul>
+								</section>
+								
+							</div>
+							
+
+						
+						<div class="popLayerWrap" id="addInfoConfirm">
+							<!-- popLayerArea -->
+							<div class="popLayerArea">
+								<!-- popInner -->
+								<div class="popInner">
+									<div class="popHeader">
+										<h1 class="popTitle">개인정보 수집 및 이용동의</h1>
+										<a href="#n" class="btnClose">닫기</a>
+									</div>
+									<div class="popContainer">
+										<div class="popCont">
+											<!-- 노출영역 -->
+											<div class="layCont">
+												<div class="txt_info">
+													님의 피부정보를 등록해주세요! <br>나중에 피부에 맞는 상품을 추천해드립니다.
+												</div>
+												<div class="box_gray">
+													<ul class="buldot_list">
+														<li><em class="th">수집 항목 :</em><span class="td">피부타입, 피부톤, 피부고민</span></li>
+														<li><em class="th">수집 및 이용목적 :</em><span class="td">피부고민, 피부톤, 피부타입에 따른 맞춤 서비스 제공</span></li>
+														<li><em class="th">보유 및 이용기간 :</em><span class="td">동의 철회 시 또는 회원 탈퇴 시 까지</span></li>
+													</ul>
+												</div>
+												<div class="btnBigArea twoSet">
+													<button type="button" class="btnGreen" id="agrReg">동의하고 등록</button>
+													<button type="button" class="btnGray" id="dagrReg">미동의</button>
+												</div>
+											</div>
+											<!-- //노출영역 -->
+
+										</div>
+									</div>
+								</div>
+								<!-- //popInner -->
+							</div>
+							<!-- //popLayerArea -->
+						</div>
+						
+
+					</div>
+					
+
+
+
+					<form id="initForm" name="initForm">
+						<input type="hidden" id="dispCatNo" 			name="dispCatNo" 			value="100000200010025" />
+						<input type="hidden" id="uprDispCatNo" 			name="uprDispCatNo" 		value="100000200010025" />
+						<input type="hidden" id="fltDispCatNo" 			name="fltDispCatNo" 		value="" />
+						<input type="hidden" id="catDpthValDefault" 	name="catDpthValDefault" 	value="3" />
+						<input type="hidden" id="catDpthVal" 			name="catDpthVal" 			value="3" />
+						<input type="hidden" id="sCategoryCnt" 			name="sCategoryCnt" 		value="8" />
+						<input type="hidden" id="smallCategory" 		name="smallCategory"		value=""/>
+						<input type="hidden" id="prdSort" 				name="prdSort"				value=""/>
+
+					</form>
+
+<input type="hidden" id="pageTitle" name="pageTitle" value="건강식품 > 영양제" />
+<input type="hidden" id="categoryShop_large_name" value="건강식품">
+<input type="hidden" id="categoryShop_middle_name" value="">
+<input type="hidden" id="categoryShop_small_name" value="전체"> 
+
+<script src="https://mstatic.oliveyoung.co.kr/mc-static-root/js/common/libs/crypto-js.min.js?dumm=20260618095511"></script>
+<script src="https://mstatic.oliveyoung.co.kr/mc-static-root/js/common/libs/token.js?dumm=20260618095511"></script>
+<script src="https://mstatic.oliveyoung.co.kr/mc-static-root/js/common/common.loadPage.js?dumm=20260618095511"></script>
+<script src="https://mstatic.oliveyoung.co.kr/mc-static-root/js/displaysearch/display.js?dumm=20260618095511"></script>
+<script type="text/javascript" src="https://mstatic.oliveyoung.co.kr/mc-static-root/js/display/category.js?dumm=20260618095511"></script>
+<script>
+    function finishCategoryShopScreen() {
+        if (window.App?.backButtonDidClick) {
+            window.App.backButtonDidClick();
+            history.back();
+            return true;
+        }
+
+        if (window.webkit?.messageHandlers?.backButtonDidClick?.postMessage) {
+            window.webkit.messageHandlers.backButtonDidClick.postMessage({});
+            history.back();
+            return true;
+        }
+
+        history.back();
+    }
+</script>
+
+<script>
+$(function() {
+	mdisplay.mcategory.init('10000020001');
+	sessionStorage.setItem("lCnt", sessionStorage.getItem("lCnt"));
+	var subIdx = 0;
+	$("#mSubGnb ul li").each(function(){
+		if($(this).find("a").hasClass(dispCatNo.value)){
+			subIdx = $(this).index();
+		}
+	});
+	if(subIdx == undefined || subIdx == null || subIdx < 0){
+		subIdx = 0;
+	}
+	$("#mSubGnb ul li").removeClass("on");
+	$("#mSubGnb ul li").eq(subIdx).addClass("on");
+
+	mdisplay.mcategory.scrollToMenu(subIdx);
+
+	//상품카드 2단을 기본 viewtype으로 설정 및 뷰타입 설장한 값으로 사용자 로그아웃 및 웹종료 후에도 설정값으로 보여질수 있게 로직 추가 김유진 2023.05.11 Modified by jw.lee
+	var categoryViewType = localStorage.getItem("categoryViewType");
+
+	if(""!=categoryViewType)
+	{
+		common.setCookie("categoryBtn", categoryViewType);
+	}else{
+		common.setCookie("categoryBtn", "two");
+	}
+
+	$('.area-goods').find('.btnOne').on('click',function(){
+		localStorage.setItem("categoryViewType", "one");
+	});
+	$('.area-goods').find('.btnTwo').on('click',function(){
+		localStorage.setItem("categoryViewType", "two");
+	});
+
+	//현재 활성화된 카테고리 이름으로 문구세팅
+	$('#catName').text($(".swiper-slide.on").text());
+
+	if (common.getCookie("categoryBtn") && common.getCookie("categoryBtn").trim().length != 0) {
+		if (common.getCookie("categoryBtn") == "one") {
+			$('.area-goods').find('.btnOne').addClass("on");
+			$('.area-goods').find('.btnTwo').removeClass('on');
+			//메인개편 2차 CBLIM 20201029 S
+			$('.area-goods').find('#oneTwo-list').removeClass('type2');
+			$('.area-goods').find('#oneTwo-list').addClass('type1');
+		}else {
+			$('.area-goods').find('.btnTwo').addClass("on");
+			$('.area-goods').find('.btnOne').removeClass('on');
+			//메인개편 2차 CBLIM 20201029 S
+			$('.area-goods').find('#oneTwo-list').removeClass('type1');
+			$('.area-goods').find('#oneTwo-list').addClass('type2');
+		}
+	}
+
+    let catNo='100000200010025';
+
+    const brazeSiteType = catNo.startsWith("400000") ? "올리브베러" : "올리브영";
+
+	// 엠플리튜드 로직 추가 2023.05.30 added by jw.lee
+	try {
+		var trackingParam = getEventParameterObject();
+
+		var categoryNo = "100000200010025";
+		//앰플리튜드 로그
+		if(categoryNo.length>15){
+
+			var reValue = {};
+			let entrySource = trackingParam.entry_source?trackingParam.entry_source:"카테고리관";
+			let clickSource = trackingParam.click_source?trackingParam.click_source:"카테고리상세_소카테고리";
+			reValue["entry_source"] = entrySource;
+			reValue["click_source"] = clickSource;
+			reValue["1st_category"] = trackingParam["1st_category_type"];
+			reValue["2nd_category"] = trackingParam["2nd_category_type"];
+			reValue["3rd_category"] = "소_"+'영양제';
+			if(trackingParam["category_type"]) {
+				reValue["search_keyword"] = trackingParam["category_type"]
+			}
+
+			let amplitudeEventName = "카테고리_소 분류 진입 페이지";
+			if (categoryNo.startsWith("200000")) {
+				amplitudeEventName = "H_카테고리_소 분류 진입 페이지";
+			} else if (categoryNo.startsWith("300000")) {
+				amplitudeEventName = "럭스에딧_카테고리_소 분류 진입 페이지"; // 드로워 > 소카화면 이동시
+			}
+			callLogEvent(amplitudeEventName, reValue);
+
+			$("#categoryShop_small_name").val('영양제'); // 화면갱신으로 인한 소카명칭 저장 - 이거 없으면 상품클릭시 [전체]로 찍힘
+
+		}else{
+			var reValue = {};
+			reValue["entry_source"] = trackingParam.entry_source;
+			reValue["click_source"] = trackingParam.click_source;
+			reValue["1st_category"] = trackingParam["1st_category_type"];
+			reValue["2nd_category"] = trackingParam["2nd_category_type"];
+			if(trackingParam["category_type"]) {
+				reValue["search_keyword"] = trackingParam["category_type"];
+			}
+
+			if(trackingParam["abtest"]) {
+				reValue["abtest"] = trackingParam["abtest"]
+			}
+
+
+			let amplitudeEventName = "카테고리_중 분류 진입 페이지";
+			if (categoryNo.startsWith("200000")) {
+				amplitudeEventName = "H_카테고리_중 분류 진입 페이지";
+			} else if (categoryNo.startsWith("300000")) {
+				amplitudeEventName = "럭스에딧_카테고리_중 분류 진입 페이지"; // 드로워 > 중카화면 이동시
+			}
+
+			callLogEvent(amplitudeEventName, reValue);
+
+		}
+
+
+        // 카테고리관 braze event 추가
+        common.callBrazeCustomEvent('getCategoryShop', {
+            siteType: brazeSiteType,
+            disp_lagCateNm: '건강식품',
+            disp_midCateNm: '영양제',
+            disp_smlCateNm: '',
+            disp_lagCateNo: '10000020001',
+            disp_midCateNo: '100000200010025',
+            disp_smlCateNo: ''
+        });
+
+	} catch(e) {
+		console.error("MO amplitude Category_Middle Classification Entry Page", e.message);
+	}
+
+});
+
+// AD-ID 콜백함수 - requestAdvertisingId(ad-id 취득함수) 호출하면 앱에서 주는 콜백함수
+function handleAdvertisingId(type, id) {
+    // 클릭한 카테고리 번호 취득
+    var dispCatNo = sessionStorage.getItem("molocoDispCatNo", dispCatNo);
+
+    // ADID가 오류로 인해 00000000-0000-0000-0000-000000000000 인 경우 randomID로 몰로코 호출
+    if(id === "00000000-0000-0000-0000-000000000000") {
+        id = mdisplay.mcategory.getGenerateUUIDv7();
+        type = "randomID";
+    }
+
+    // 몰로코 호출
+    mdisplay.mcategory.getMolocoInfoAjaxCore(dispCatNo, id, type);
+}
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	<!-- [D] 2022.04 footer ui 변경 작업 스타일 적용 시 type_renewal class 기준으로 적용 -->
+	<div id="mFooter" class="m2105 type_renewal">
+		<div class="footer">
+			<ul class="footer_util_list">
+				<li class="footer_util_item">
+					<a href="tel:1577-4887" class="link_util type_call">대표전화</a>
+				</li>
+				<li class="footer_util_item">
+					
+						
+							<a href="javascript:common.link.moveLoginPage('','','Y');" title="페이지 이동" class="link_util type_chat">채팅 상담</a>
+						
+						
+					
+				</li>
+				<li class="footer_util_item">
+					<a href="javascript:common.link.moveCounselListFooter(true);" class="link_util type_faq">1:1문의</a>
+				</li>
+				<li class="footer_util_item">
+					<a href="javascript:common.link.moveCounselMain()" class="link_util type_customer">고객센터</a>
+				</li>
+			</ul>
+			<div class="footer_info">
+				<!-- [D] 항상 열린 상태로 노출 (open class 고정) -->
+				<h4 class="ftit open"><button type="button" class="acoHead" aria-expanded="true">씨제이올리브영(주)</button></h4>
+				<div class="acoCont">
+					<dl class="info_list">
+						<dt class="info_title">대표이사</dt>
+						<dd class="info_desc">이선정</dd>
+						<dt class="info_title">사업자 등록번호</dt>
+						<dd class="info_desc">809-81-01574</dd>
+						<dt class="info_title">호스팅 사업자</dt>
+						<dd class="info_desc">CJ올리브네트웍스</dd>
+						<dt class="info_title">통신판매업신고번호</dt>
+						<dd class="info_desc">2019-서울용산-1428</dd>
+						<dt class="info_title">이메일</dt>
+						<dd class="info_desc"><a href="/cdn-cgi/l/email-protection#345b585d42514d5b415a5374575e1a5a5140" class="link_info"><span class="__cf_email__" data-cfemail="ddb2b1b4abb8a4b2a8b3ba9dbeb7f3b3b8a9">[email&#160;protected]</span></a></dd>
+						<dt class="info_title">고객센터</dt>
+						<dd class="info_desc">
+							대표전화 <a href="tel:1577-4887" class="link_info tel">1577-4887</a></dd>
+						<dt class="info_title">주소</dt>
+						<dd class="info_desc">(04323)서울특별시 용산구 한강대로<br>372, 24층(동자동, KDB타워)</dd>
+					</dl>
+					<ul class="mlist2v-menu">
+						<li><a href="javascript:common.link.openFtcBizInfo();" title="페이지 이동">사업자 정보 확인</a></li>
+                        <li><a href="javascript:common.link.openEscrowPopup('https://image.oliveyoung.co.kr/cfimages/footer/payment_guarantee.png' );" title="페이지 이동">하나은행 구매안전 서비스</a></li>
+						<li><a href="javascript:common.oyLayerOpen('cyberAuditPop');" title="페이지 이동">사이버 감사실</a></li>
+					</ul>
+					<p class="copy">© 올리브영<span>&nbsp;ALL RIGHTS RESERVED</span></p>
+				</div>
+			</div>
+			<ul class="mlist-sns">
+				<li class="instagram">
+					<a href="javascript:common.app.callOpenBrowser('https://www.instagram.com/oliveyoung_official/');" title="새창 열림">
+						<span class="oyblind">인스타그램</span>
+					</a>
+				</li>
+				<li class="facebook">
+					<a href="javascript:common.app.callOpenBrowser('https://www.facebook.com/OLIVEYOUNG');" title="새창 열림">
+						<span class="oyblind">페이스북</span>
+					</a>
+				</li>
+				<li class="kakao">
+					<a href="javascript:common.app.callOpenBrowser('http://plus.kakao.com/friend/@' + common.app.fixedEncodeURIComponent('올리브영'));" title="새창 열림">
+						<span class="oyblind">카카오톡 플러스 친구</span>
+					</a>
+				</li>
+				<li class="youtube">
+					<a href="javascript:common.app.callOpenBrowser('https://www.youtube.com/user/cjoliveyoung/');" title="새창 열림">
+						<span class="oyblind">유튜브</span>
+					</a>
+				</li>
+			</ul>
+			<ul class="mlist4v-menu">
+				
+				<li><a href="javascript:common.link.callTermsPage();" title="페이지 이동">이용약관과 정책</a></li>
+				<li><a href="javascript:common.link.callPrivacyPage();" title="페이지 이동" class="text_bold">개인정보처리방침</a></li>
+				<li class="lbr lbr-a" aria-hidden="true"></li>
+				<li><a href="javascript:common.link.callLocationPolicyPage();" title="페이지 이동">위치기반서비스 이용약관</a></li>
+				<li><a href="javascript:common.link.callYouthProtectionPage();" title="페이지 이동">청소년보호방침</a></li>
+				<li class="lbr lbr-b" aria-hidden="true"></li>
+				<li><a href="javascript:common.link.callLegalFooterPage();" title="페이지 이동">법적고지</a></li>
+				<li class="lbr lbr-c" aria-hidden="true"></li>
+                
+                    
+                    
+                        <li><a href="/m/mtn/planshop/detail/500000100015347" onclick="javascript:common.link.callBulkPurchase();" title="페이지 이동">대량구매</a></li>
+                    
+                
+				<li class="lbr lbr-d" aria-hidden="true"></li>
+                <li class="ccm"><div><img src="https://mstatic.oliveyoung.co.kr/mc-static-root/image/comm/ccm.png" alt="소비자중심경영 인증" />소비자중심경영 인증</div></li>
+			</ul>
+			<!-- [D] MW에서만 노출되는 영역 -->
+			
+				
+					
+					
+						<div class="footer_btn_area">
+							<a href="javascript:common.link.openAppDownloadPage();" title="새창 열림" class="link">APP 다운로드</a>
+						</div>
+					
+				
+
+            
+            <!-- //[D] MW에서만 노출되는 영역 -->
+        </div>
+    </div>
+    </div>
+
+
+
+
+
+<!-- <div class="fvPop_search"  style="display: none;"> //fixBtn 처럼 하단 footerTab 나타나면 on 클래스 주세요
+<button><span>매장 검색 옵션</span></button>
+</div> -->
+
+
+
+
+<div id="alwaysOnFixBtn" class="onFooter">
+    <a href="javascript:;" class="btnChatting hidden" role="button">
+        <span>채팅상담</span>
+        <div class="new">new</div>
+    </a>
+</div>
+<!-- 해당영역 -->
+<div id="fixBtn">
+    
+    
+        <a href="javascript:;" class="btnBack" role="button"><span>이전 페이지로</span></a>
+    
+    
+    <a href="javascript:;" class="btnTop" role="button"><span>맨위로</span></a>
+</div>
+<!-- //해당영역 -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    
+        
+    
+    
+
+
+<div class="footerTab on icl renew-footerTab" id="footerTab" style="display:none">
+
+    <div class="noti_service" id="noti_service" style="display: none;">
+        <div class="inner" id="ulShopAlim">
+        </div>
+    </div>
+
+    <ul class="footerTab-list">
+        
+            
+                
+                    <li class="menu sm " id="footerTabhome" data-id="home" data-reddot="N" data-path="/m/mtn?menu=home&t_click=%ED%99%88&t_page=%ED%83%AD%EB%B0%94">
+                        <a href="/m/mtn?menu=home&t_click=%ED%99%88&t_page=%ED%83%AD%EB%B0%94?t_page=홈&t_click=탭바" role="button" data-attr="공통^홈_유틸바^카테고리" onclick="common.footer.tabbarTracking('탭바_올영홈클릭', '홈', '홈')">
+                            <div class="icon-wrapper">
+                                
+                                    
+                                    
+                                
+                                <img class="icon-svg" alt="" loading="lazy" decoding="async" data-nimg="1" src="https://m.oliveyoung.co.kr/uploads/images/display/90000010001/564/9104062625667910794.svg"/>
+                            </div>
+                            <span class="text">홈</span>
+                        </a>
+                    </li>
+                
+                    <li class="menu sm " id="footerTabcategory" data-id="category" data-reddot="N" data-path="/m/mtn/drawer?t_click=%EC%B9%B4%ED%85%8C%EA%B3%A0%EB%A6%AC&t_page=%ED%83%AD%EB%B0%94">
+                        <a href="/m/mtn/drawer?t_click=%EC%B9%B4%ED%85%8C%EA%B3%A0%EB%A6%AC&t_page=%ED%83%AD%EB%B0%94?t_page=홈&t_click=탭바" role="button" data-attr="공통^홈_유틸바^카테고리" onclick="common.footer.tabbarTracking('탭바_카테고리클릭', '드로우', '카테고리')">
+                            <div class="icon-wrapper">
+                                
+                                    
+                                    
+                                
+                                <img class="icon-svg" alt="" loading="lazy" decoding="async" data-nimg="1" src="https://m.oliveyoung.co.kr/uploads/images/display/90000010001/564/625460001685810844.svg"/>
+                            </div>
+                            <span class="text">카테고리</span>
+                        </a>
+                    </li>
+                
+                    <li class="menu sm " id="footerTabexplorer" data-id="explorer" data-reddot="N" data-path="/m/mtn/explorer?t_click=%EB%B0%9C%EA%B2%AC&t_page=%ED%83%AD%EB%B0%94">
+                        <a href="/m/mtn/explorer?t_click=%EB%B0%9C%EA%B2%AC&t_page=%ED%83%AD%EB%B0%94?t_page=홈&t_click=탭바" role="button" data-attr="공통^홈_유틸바^카테고리" onclick="common.footer.tabbarTracking('탭바_발견클릭', '발견', '발견')">
+                            <div class="icon-wrapper">
+                                
+                                    
+                                    
+                                
+                                <img class="icon-svg" alt="" loading="lazy" decoding="async" data-nimg="1" src="https://m.oliveyoung.co.kr/uploads/images/display/90000010001/564/9001658708972928618.svg"/>
+                            </div>
+                            <span class="text">발견</span>
+                        </a>
+                    </li>
+                
+                    <li class="menu sm " id="footerTabstore" data-id="store" data-reddot="N" data-path="/m/mtn/store/home/oy-store?t_click=%EC%98%AC%EC%98%81%EB%A7%A4%EC%9E%A5&t_page=%ED%83%AD%EB%B0%94">
+                        <a href="/m/mtn/store/home/oy-store?t_click=%EC%98%AC%EC%98%81%EB%A7%A4%EC%9E%A5&t_page=%ED%83%AD%EB%B0%94?t_page=홈&t_click=탭바" role="button" data-attr="공통^홈_유틸바^카테고리" onclick="common.footer.tabbarTracking('탭바_올영매장클릭', '올영매장', '올영매장')">
+                            <div class="icon-wrapper">
+                                
+                                    
+                                    
+                                
+                                <img class="icon-svg" alt="" loading="lazy" decoding="async" data-nimg="1" src="https://m.oliveyoung.co.kr/uploads/images/display/90000010001/564/210916545036897705.svg"/>
+                            </div>
+                            <span class="text">올영매장</span>
+                        </a>
+                    </li>
+                
+                    <li class="menu sm " id="footerTablike" data-id="like" data-reddot="N" data-path="/m/mtn/history?tab=liked&sub=product&t_click=%EC%A2%8B%EC%95%84%EC%9A%94&t_page=%ED%83%AD%EB%B0%94">
+                        <a href="/m/mtn/history?tab=liked&sub=product&t_click=%EC%A2%8B%EC%95%84%EC%9A%94&t_page=%ED%83%AD%EB%B0%94?t_page=홈&t_click=탭바" role="button" data-attr="공통^홈_유틸바^카테고리" onclick="common.footer.tabbarTracking('탭바_히스토리클릭', '히스토리', '좋아요')">
+                            <div class="icon-wrapper">
+                                
+                                    
+                                    
+                                
+                                <img class="icon-svg" alt="" loading="lazy" decoding="async" data-nimg="1" src="https://m.oliveyoung.co.kr/uploads/images/display/90000010001/564/336007397563261055.svg"/>
+                            </div>
+                            <span class="text">좋아요</span>
+                        </a>
+                    </li>
+                
+                    <li class="menu sm " id="footerTabmy" data-id="my" data-reddot="N" data-path="/m/mypage/myPageMain.do?t_click=%EB%A7%88%EC%9D%B4&t_page=%ED%83%AD%EB%B0%94">
+                        <a href="/m/mypage/myPageMain.do?t_click=%EB%A7%88%EC%9D%B4&t_page=%ED%83%AD%EB%B0%94?t_page=홈&t_click=탭바" role="button" data-attr="공통^홈_유틸바^카테고리" onclick="common.footer.tabbarTracking('탭바_마이페이지클릭', '마이페이지', '마이')">
+                            <div class="icon-wrapper">
+                                
+                                    
+                                    
+                                
+                                <img class="icon-svg" alt="" loading="lazy" decoding="async" data-nimg="1" src="https://m.oliveyoung.co.kr/uploads/images/display/90000010001/564/665659145233143092.svg"/>
+                            </div>
+                            <span class="text">마이</span>
+                        </a>
+                    </li>
+                
+            
+            
+        
+    </ul>
+</div>
+
+
+<!-- ↓ [3428979] 2020-10-20 쇼핑알림서비스 -->
+<!-- <div class="noti-assistant">
+<div class="inner swiper-container swiper-container-vertical swiper-container-android">
+<ul class="swiper-wrapper" style="transform: translate3d(0px, -228px,
+
+); transition-duration: 0ms;" id="ulShopAlim">
+</ul>
+</div>
+</div> -->
+<!-- ↑ 쇼핑알림서비스 -->
+
+</div>
+
+
+<!-- #mSearchWrapper -->
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/template" id="mSearchWrapperTmpl" >
+    
+    <div id="mContainer"  class="dsearch_height">
+        
+        <div class="searchFix dsearch_bar">
+            
+            <div class="search_tit">
+                <button id="schBackBtn">Back Button</button>
+                <div class="sch_field5 search">
+                    <input id="notUseOnlyfocus" name="notUseOnlyfocus" onpaste="return false;" oncopy="return false;" style="position: absolute; left:-100%;">
+                    <div class="input_wrap">
+                        <input class="searchScpInput" type="text" name="query" id="query" value="" title="검색어를 입력해 주세요." placeholder="검색어를 입력해 주세요." onKeypress="javascript:common.footer.pressCheckMainSearch4((event),this);">
+                        <a href="javascript:;" class="btn_sch_del"><span class="blind">검색어 삭제</span></a>
+                        <a href="javascript:;" onclick="javascript:common.wlog('main_search_icon');" class="btn_sch_new"><span class="blind">검색</span></a>
+                    </div>
+                    <a href="javascript:;" class="btn_sch_barcode" data-attr="공통^통합검색_스마트스캐너^통합검색_스마트스캐너"><span class="blind">바코드스캔검색</span></a>
+                </div>
+            </div>
+            
+        </div>
+        
+
+        
+        <div id="mContents bgWhite" class="related_search dsearch_wrap">
+            
+            
+            <div class="search_auto_area off">
+                
+                <div class="related_container_wrap category" id="ark_cate"></div>
+                
+                <div class="related_container_wrap category brand" id="ark_brand"></div>
+                
+                <div class="tag_container" id="ark_m"></div>
+            </div>
+            
+            
+
+            
+            
+            <div class="search_swiper_area" style="display:none">
+                <div class="sliderPrdwrap swiper-container dsearch"><!-- 상세검색개선: 클래스 'dsearch' 추가 -->
+                    <div class="paging"></div>
+                    <ul class="sliderPrd swiper-wrapper">
+                        <!-- 최근검색어 S -->
+                        <li class="swiper-slide search_list_wrap">
+                            <div class="layout sudden_search recently_search" id="mykeyword">
+                                <div class="title"><img src="https://mstatic.oliveyoung.co.kr/mc-static-root/image/comm/ico_recently.png" alt="">최근 검색어</div>
+
+                                <div class="list_wrap">
+
+                                </div>
+                                <div class="btn_clear_wrap">
+                                    <button class="btn_clear" onclick='javascript:deleteNewCookies();'>전체 삭제</button>
+                                </div>
+                                <div class="info_none" style="display:none">
+                                    <p>최근 검색한 기록이<br/>없습니다.</p>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- 최근검색어 E -->
+
+                        <!-- 급상승 검색어 S -->
+                        <li class="swiper-slide search_list_wrap">
+                            <div class="layout sudden_search" id="popword">
+                                <div class="title"><img src="https://mstatic.oliveyoung.co.kr/mc-static-root/image/comm/ico_livetime.png" alt="">급상승 검색어</div>
+                                <div class="list_wrap">
+
+                                </div>
+                            </div>
+                        </li>
+                        <!-- 급상승 검색어 E -->
+
+                        <!-- 최근 본 상품 S -->
+                        <li class="swiper-slide search_list_wrap">
+                            <div class="layout product" id="recentgoods">
+                                <div class="title  mgT-2"><img src="https://mstatic.oliveyoung.co.kr/mc-static-root/image/comm/ico_box.png" alt="">최근 본 상품</div>
+                                <div class="list_wrap">
+
+                                </div>
+                                <div class="btn_clear_wrap">
+                                    <button class="btn_clear" onclick='javascript:deleteRecentGoods();'>전체 삭제</button>
+                                </div>
+                                <div class="info_none" style="display:none">
+                                    <p>최근 본 상품이<br/>없습니다.</p>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- 최근 본 상품 E -->
+                    </ul>
+                </div>
+            </div>
+            
+            
+        </div>
+        
+
+        <!-- SCP추가 -->
+        <div class="scp_cont" id="scp_cont_id" style="z-index: 17;">
+        </div>
+        <!-- //SCP추가 -->
+    </div>
+    
+</script>
+<div id="mSearchWrapper" style="display:none;">
+
+</div>
+<!-- //#mSearchWrapper -->
+
+<div class="gdasPopCont" style="display:none;">
+</div>
+
+
+<div class="layerAlim" style="display:none;">
+    <span class="icon"></span>
+    <p></p>
+</div>
+
+
+
+
+
+<div class="popFullWrap heightAuto" id="pop-full-wrap" style="display:none;">
+    
+    <div class="popHeader" id="strPopHeader">
+        <h1 class="popTitle" id="pop-full-title"></h1>
+        <button class="btnClose" id="pop-full-close" onclick="common.popFullClose();">닫기</button>
+    </div>
+    
+    
+    <div class="popContainer">
+        <div class="popCont" id="pop-full-contents">
+        </div>
+        
+    </div>
+    
+</div>
+
+
+
+
+
+<div class="crtPopFullWrap" style="display:none;">
+    
+    <div class="popHeader">
+        <h1 class="popTitle alignLeft"></h1>
+        <button class="btnClose" onclick="curation.popFullClose();">닫기</button>
+    </div>
+    
+    
+    <div class="popContainer">
+        <div class="popCont">
+
+        </div>
+        
+    </div>
+    
+</div>
+
+
+
+<div class="popFullWrap heightAuto" id="pop-full-wrap-retstr" style="display:none;">
+</div>
+
+
+
+<div class="popLayerWrap" id="LAYERPOP01" style="display:none;">
+    
+    <div class="popLayerArea">
+        
+        <div class="popInner" id="layerPop">
+            <div class="popHeader">
+                <h1 class="popTitle" id="LAYERPOP01-title"></h1>
+                <!-- 2017-01-25 삭제 <a href="" class="btnClose" onclick="common.popLayerClose('LAYERPOP01');return false;">닫기</a> -->
+                <button class="btnClose" onclick="common.popLayerClose('LAYERPOP01');return false;">닫기</button>
+            </div>
+            
+            <div class="popContainer">
+                
+                <div class="popCont" id="LAYERPOP01-contents">
+                </div>
+                
+            </div>
+            
+        </div>
+        
+    </div>
+    
+</div>
+
+
+
+<div class="popLayerWrap" id="LAYERPOP02" style="display:none;">
+    
+    <div class="popLayerArea">
+        
+        <div class="popInner" id="layerPop2"></div>
+        
+    </div>
+    
+</div>
+
+
+<div class="popLayerWrap" id="LAYERPOP03" style="display:none;">
+    
+    <div class="popLayerArea">
+        
+        <div class="popInner" id="layerPop3"></div>
+        
+    </div>
+    
+</div>
+
+
+<div class="popLayerWrap" id="LAYERPOP04" style="display:none;">
+    
+    <div class="popLayerArea">
+        
+        <div class="popInner" id="layerPop4"></div>
+        
+    </div>
+    
+</div>
+
+
+
+
+<div class="popLayerWrap" id="searchZipcode" style="display:none;">
+    
+    <div class="popLayerArea">
+        
+        <div class="popInner" id="layerPop">
+            <div class="popHeader">
+                <h1 class="popTitle" id="LAYERPOP01-title"></h1>
+                <!-- 2017-01-25 삭제 <a href="" class="btnClose" onclick="common.popLayerClose('LAYERPOP01');return false;">닫기</a> -->
+                <button class="btnClose" onclick="common.popLayerClose('searchZipcode');return false;">닫기</button>
+            </div>
+            
+            <div class="popContainer" style="-webkit-overflow-scrolling:touch;overflow:auto">
+                
+                <div class="popCont" id="LAYERPOP01-contents-quick">
+                </div>
+                
+            </div>
+            
+        </div>
+        
+    </div>
+    
+</div>
+
+
+
+<div class="popLayerWrap" id="QUICKLAYERPOP" style="display:none;">
+    
+    <div class="popLayerArea">
+        
+        <div class="popInner" id="layerPop">
+            <div class="popHeader">
+                <h1 class="popTitle" id="QUICKLAYERPOP-title"></h1>
+                <!-- 2017-01-25 삭제 <a href="" class="btnClose" onclick="common.popLayerClose('LAYERPOP01');return false;">닫기</a> -->
+                <button class="btnClose" onclick="common.popLayerClose('QUICKLAYERPOP');return false;">닫기</button>
+            </div>
+            
+            <div class="popContainer pdzero">
+                
+                <div class="popCont" id="QUICKLAYERPOP-contents">
+                </div>
+                
+            </div>
+            
+        </div>
+        
+    </div>
+    
+</div>
+
+
+
+<div class="popLayerWrap" id="SNSLAYER" style="display:none;"><!-- 일반 팝업과 마크업 구조가 다름 -->
+</div>
+
+<div class="popLayerWrap" id="prdSdLayer" style="display:none;"><!-- 일반 팝업과 마크업 구조가 다름 -->
+    <div class="prd_sd_layer">
+        <div class="prd_sd_inner" id="goods_curation_a008">
+        </div>
+    </div>
+</div>
+<div class="popLayerWrap" id="usrProfileWrap" style="display:none;">
+    <div class="popLayerArea skinChoice">
+
+    </div>
+</div>
+
+<div class="popLayerWrap typeUi" id="touchLogin">
+    <div class="popLayerArea">
+        <div class="popInner">
+            <div class="popContainer">
+                <div class="popCont">
+                    <div class="alertUi">
+                        <h2 class="tit">안내</h2>
+                        <p class="txt_base">다음 로그인 시 <span id="bio_txt_1">Touch</span> ID 로그인을 <br>사용하시겠습니까?</p>
+                        <p class="txt_check"><input type="checkbox" id="noAgain" name="biometricHide" /><label for="noAgain">다시보지 않기</label></p>
+                        <ul class="btn_type2">
+                            <li><button type="button" onclick="javascript:common.bio.biometricLayerClose();">아니오</button></li>
+                            <li><button type="button" onclick="javascript:common.bio.biometricsUpdate();">예</button></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="txt_fixed" id="txt_fixed">
+    <div class="inner">
+        <p class="txt">올리브영 계정으로 <span id="bio_txt_2">Touch</span> ID 로그인이 활성화 되었습니다.</p>
+    </div>
+</div>
+
+
+
+<!-- 사진 첨부 안내 -->
+<div class="popLayerWrap" id="layPhotoFile">
+    <div class="popLayerArea">
+        <div class="popInner" id="layerPop">
+            <div class="popHeader">
+                <h1 class="popTitle">반품비용 상세정보</h1>
+                <a href="javascript:;" class="btnClose" id="pop-full-close" onclick="common.popLayerClose('layPhotoFile');">닫기</a>
+            </div>
+            <div class="popContainer">
+                <div class="popCont">
+                    <p class="txts_1">사진을 첨부해 주세요.</p>
+                    <p class="btnBigArea pdzero"><button type="button" class="btnGreen" onclick="common.popLayerClose('layPhotoFile');">확인</button></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- //사진 첨부 안내 -->
+
+<!-- 기프트카드 영수증 -->
+<div class="popLayerWrap" id="gcReceiptPopup">
+    <div class="popLayerArea">
+        <div class="popInner">
+            <div class="popContainer">
+                <div class="popCont">
+                    <div class="pop-iframe-inner"><!-- 2020/03/13 추가 -->
+                        <iframe id="iframeReceipt" title="" src=""></iframe>
+                    </div>
+                    <div class="btn-wrap">
+                        <button type="button" class="btnGray" onclick="iframePopLayerClose('gcReceiptPopup');">닫기</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- popLayerWrap  lay_basket_type.html-->
+<div class="popLayerWrap" id="prdOptionPopup">
+    <input type="hidden" name="goodsNo"/>
+    <input type="hidden" name="itemNo" />
+    <input type="hidden" name="quickYn" />
+    <!-- popLayerArea -->
+    <div class="popLayerArea scroll-auto">
+        <!-- popInner -->
+        <div class="popInner">
+            <div class="popHeader">
+                <h1 class="popTitle">옵션 선택</h1>
+                <a href="#" class="btnClose"  onclick="common.popLayerCloseOption('prdOptionPopup');return false;">닫기</a>
+            </div>
+            <div class="popContainer pdzero">
+
+                <div class="popCont mh45"><!-- popCont 스크롤 영역 -->
+                    <div class="bsk-box">
+                        <div class="item-box">
+                            <p class="img-ar"><img src="" alt="보 더마 디펜스 웨이브 쿠션 세트" onerror="common.errorImg(this);"></p>
+                            <div class="opt-ar">
+                                <span class="bname"></span>
+                                <p class="iname"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="select-type">
+                        <div class="inner"><!-- open 클래스 -->
+                            <a href="#none" class="choice">상품을 선택해주세요.</a>
+                            <div class="sel-list">
+                                <ul class="list" id="reco_option_area">
+                                    <!-- <li>
+                                        <a href="#" class="price-box">
+                                            <div class="txt-opt">
+                                                <p class="oname">NEW 반다이크 브라운</p>
+                                                <p class="icon">
+                                                    <span class="delivery">오늘드림</span>
+                                                </p>
+                                            </div>
+                                            <span class="price">24,000<span>원</span></span>
+                                        </a>
+                                    </li> -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="btnBigArea twoSet pdzero mgT10">
+                        <button type="button"  onclick="common.popLayerCloseOption('prdOptionPopup');return false;" class="btnLineGreen">닫기</button>
+                        <button type="button" onclick="common.before_regCart('prdOptionPopup');return false;" class="btnGreen">장바구니 담기</button>
+                    </div>
+
+                </div><!-- //popCont 스크롤 영역 -->
+
+
+            </div>
+
+        </div>
+        <!-- //popInner -->
+    </div>
+    <!-- //popLayerArea -->
+</div>
+<!-- //popLayerWrap -->
+
+<!-- S 메인큐레이션 장바구니 레이어 팝업  -->
+<div class="popLayerWrap" id="cardBenefitInfo">
+    <!-- popLayerArea -->
+    <div class="popLayerArea scroll-auto">
+        <!-- popInner -->
+        <div class="popInner">
+            <div class="popHeader">
+                <h1 class="popTitle">선택 완료</h1>
+                <a href="#" class="btnClose" onclick="common.popLayerClose('cardBenefitInfo');return false;">닫기</a>
+            </div>
+            <div class="popContainer pdzero">
+
+                <div class="popCont pd20 mh45"><!-- popCont 스크롤 영역 -->
+                    <p class="txt_onbag">장바구니에 추가되었습니다.</p>
+                    <div class="btnBigArea twoSet pdzero mgT10">
+                        <button type="button" class="btnLineGreen" onclick="common.link.moveCartPage();return false;">장바구니 확인</button>
+                        <button type="button" class="btnGreen" onclick="common.popLayerClose('cardBenefitInfo');return false;">쇼핑 계속하기</button>
+                    </div>
+                    <div class="lay-cu-box">
+                        <div class="curation_wrap" id="curation_area_a003">
+                            <div class="tit_cuarea">
+                                <h4 class="tit">다른 사람이 함께 구매한 상품입니다.</h4>
+                            </div>
+                            <div class="swiper-container curation_area typeA2" id="curation2-layer">
+                                <ul class="swiper-wrapper curation_list">
+                                    <li class="swiper-slide">
+                                        <div class="loading_cont type2 main">
+                                            <div class="inner">
+                                                <div class="cont">
+                                                    <span class="imggif"><img src="https://mstatic.oliveyoung.co.kr/mc-static-root/image/comm/mc_loading.gif" alt=""></span>
+                                                    <p class="txt">고객님을 위한 상품 추천중이에요</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div><!-- //popCont 스크롤 영역 -->
+            </div>
+
+        </div>
+        <!-- //popInner -->
+    </div>
+    <!-- //popLayerArea -->
+</div>
+<!-- E 메인큐레이션 장바구니 레이어 팝업  -->
+
+<!-- S 앱푸시수신동의 팝업 -->
+<div class="popLayerWrap" id="pushMsgRcvAgrPop">
+</div>
+<input type="hidden" id="popSvcEvtAgrYn" name="popSvcEvtAgrYn" value=""/>
+<input type="hidden" id="popPushMsgRcvYn" name="popPushMsgRcvYn" value=""/>
+<!-- E 앱푸시수신동의 팝업 -->
+
+<!-- 올알랭2차 CBLIM S -->
+<div class="oyFullLayer layer-allalain" id="layer-allalain">
+</div>
+
+<!-- 올알랭2차 CBLIM E -->
+
+<!-- S : 2020-12-23 [3464836] 온라인몰 푸터 > 사이버감사실 인입 전 팝업 안내 적용 요청 -->
+<!--  Layer S -->
+<div class="oyLayerWrap" id="cyberAuditPop">
+    <div class="oyLayerContainer">
+        <div class="oyHead">
+            <h1 class="tit">사이버감사실 이용안내</h1>
+            <button class="btnClose" onclick="common.oyLayerClose('cyberAuditPop');return false;">닫기</button>
+        </div>
+        <div class="oyContents">
+            <div class="oyCont">
+                클레임 등 서비스 불만족 사항은 ‘고객센터’에 등록해주세요.<br>
+                <strong>사이버 감사실로 접수되는 서비스 불만족 사항은 처리되지 않습니다.</strong>
+            </div>
+            <div class="btnBigArea btnType twoSet">
+                <a href="javascript:common.link.moveCounselMain();" class="btnLineGreen">고객센터 이동</a>
+                <a href="javascript:common.link.openCyberAudit2();" class="btnGreen">제보하기</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--  Layer E -->
+
+<div class="dim"></div>
+<div class="prd_dim"></div>
+
+
+
+
+
+
+
+<script type="text/javascript">
+    
+
+
+    
+    var _gaUaKey = "UA-92021806-2";
+    var _wlDomain = "m.oliveyoung.co.kr";
+
+    // [3533553] (GA) GA/GTM 기본 셋팅 및 데이터레이어 태깅
+    var _cartNormalCnt = "";
+    var _cartQuickCnt = "";
+
+    $(window).ready(function(){
+        
+        common.historyBackBind();
+
+        
+        common.recentGoods.getLast();
+
+        //기본 상단 GNB & 슬라이드 바 처리
+        common.gnb.init();
+
+        try {
+            var isLoginFormApp = "null";
+            var APP_BIOMETRIC_LAYER = localStorage.getItem("APP_BIOMETRIC_LAYER");
+            //바이오인증 안내 팝업
+            if (common.app.appInfo.isapp) {
+                
+                if (isLoginFormApp != "Y" && APP_BIOMETRIC_LAYER != "Y") {
+                    common.bio.biometricLayerOpen();
+                }
+            }
+        } catch (e) {
+            console.log("##### Footer Error ##### ");
+        }
+
+        //footer accordion - 항상 열린 상태로 고정 (토글 비활성화)
+        var _footer_info = $('.footer_info'),
+            _ftit = _footer_info.children('.ftit'),
+            _acoHead = _ftit.children('.acoHead');
+        _ftit.addClass('open');
+        _acoHead.attr('aria-expanded', 'true');
+
+        //남성관, 앱푸시 팝업 display 효과를 위해
+        setTimeout(function() {
+            common.gnb.callFooterBann();
+        }, 200);
+
+        common.gnb.callShopAlim();
+
+        if(common.app.appInfo.hassafearea == "true") {
+            $('body').addClass('notchBtm');
+        }
+    });
+
+    //복사/선택 방지 소스
+    $(window).load(function() {
+
+        //웹접근성 popFocus 실행( 2017-05-11 )
+        common.popFocus();
+
+        
+
+        $.fn.disableSelection = function() {
+            document.documentElement.style.webkitUserSelect='none';
+
+            return this
+                .attr('unselectable', 'on')
+                .css({'-moz-user-select':'-moz-none',
+                    '-moz-user-select':'none',
+                    '-o-user-select':'none',
+                    '-khtml-user-select':'none',
+                    '-webkit-user-select':'none',
+                    '-ms-user-select':'none',
+                    'user-select':'none',
+                    '-webkit-touch-select':'none'})
+                .bind('selectstart', false)
+                .bind('mousedown', false);
+        };
+
+        $.fn.enableSelection = function() {
+            document.documentElement.style.webkitUserSelect='';
+            //     $(document).removeAttr("webkitUserSelect");
+
+            return this
+                .removeAttr('unselectable')
+                .unbind('selectstart', true)
+                .unbind('mousedown');
+        };
+
+        //scrollTrigger.init();
+    });
+
+
+    /* $(document).ready(function() {
+
+        $(window).on("load scroll",function(){
+            var scrollTop = $(window).scrollTop();
+            var m_header = $('#mHeader').innerHeight() + 1;
+            var m_header = $('#strPopHeader').innerHeight() + 1;
+            var tab_reShop_h = $('.tab_reShop').innerHeight() + 48;
+            var tab_reShop_h = $('.tab_reShop').innerHeight() + 48;
+            if (scrollTop > m_header) {
+                $('#mContainer').addClass('fixed');
+                $('#offStoreFullPop').addClass('fixed');
+                $('#mContents').css({
+                    'paddingTop' : tab_reShop_h,
+                })
+            } else{
+                $('#mContainer').removeClass('fixed');
+                $('#offStoreFullPop').removeClass('fixed');
+                $('#mContents').css({
+                    'paddingTop' : '0',
+                })
+            }
+            console.log(scrollTop , m_header, tab_reShop_h);
+        });
+
+    }); */
+
+    //스티키 남성관
+    /*
+    var man_sticky = $('#man_sticky'),
+    btnClose = man_sticky.find('.btnClose');
+
+    btnClose.on('click', function(){
+        $('#footerTab').removeClass('btmBan');
+        man_sticky.remove();
+        $('#fixBtn').removeClass('manban');
+        $('#footerTab').removeAttr('style');
+    });
+
+    $('#man_sticky .inner .banCont img').on('load', function(){
+        var mManban = $('#man_sticky'),
+        mFooterTab = $('#footerTab'),
+        mBanHeight = (mManban.height())+50;
+        if($("#footerTab .btmBan_area").length > 0){
+            mFooterTab.css({
+                height:mBanHeight,
+            });
+        }
+    });
+    */
+
+</script>
+
+
+
+
+<script src="https://mstatic.oliveyoung.co.kr/mc-static-root/js/common/common.weblog.js?dumm=20260618095511" charset="utf-8"></script>
+
+<!-- [3533553] (GA) GA/GTM 기본 셋팅 및 데이터레이어 태깅 - dataLayer -->
+<script>
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+        'dimension3': (common.app.appInfo.isapp ? 'app' : 'mw'), 																	// cd3 : 채널유형 [앱:app, 모바일웹:mw, PC웹:pc]
+        'dimension18': (sessionStorage.getItem("checkLoginStatus") ? 'y' : 'n'),													// cd18 : 로그인 여부 [로그인:y, 비로그인:n]
+        'dimension24': (_cartQuickCnt ? _cartQuickCnt : 0),																		// cd24 : 장바구니 내 상품수 (오늘드림) [* 없을경우:0]
+        'dimension25': (_cartNormalCnt ? _cartNormalCnt : 0),																		// cd25 : 장바구니 내 상품수 (일반배송) [* 없을경우:0]
+        'dimension121': (sessionStorage.getItem("gtmPreviousTitle") ? sessionStorage.getItem("gtmPreviousTitle") : undefined)		// cd121 : 이전 페이지명 (title) [* 없을경우 undefined]
+    });
+
+    // 이전 페이지 title 저장 to sessionStorage
+    sessionStorage.setItem("gtmPreviousTitle", document.title);
+
+    // GTM Product Impression 공통 적용
+    $(document).ready(function() {
+        gtm.goods.initProductImpression();
+
+        var drawerRedDotYn = window.localStorage.getItem("REDDOT_DRAWER_YN");
+        if (drawerRedDotYn) {
+            try {
+                drawerRedDotYn = JSON.parse(drawerRedDotYn);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        var displayEndDate = new Date(2024, 2, 18).getTime();
+        var currentDate = new Date().getTime();
+        if (drawerRedDotYn !== "Y" && currentDate < displayEndDate) {
+            $("#footerTabCategoy").addClass("reddot");
+        }
+    });
+</script>
+
+
+
+
+<!-- Google Tag Manager -->
+<!-- [3561762] (GA) GTM 컨테이너 분리 -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PJLS5M7');</script>
+<!-- 기존 GA 스크립트 -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NF4R92W');</script>
+<!-- End Google Tag Manager -->
+
+<!-- Global site tag (gtag.js) - Google Ads -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-416582525"></script>
+<script>
+    function gtag(){window.dataLayer.push(arguments);}
+
+    gtag('js', new Date());
+    gtag('config', 'AW-416582525');
+</script>
+<!-- End of Global site tag (gtag.js) - Google Ads -->
+
+
+<script>
+    // 유입경로 braze tracking
+    try {
+        common.callBrazeAdInFlow();
+    } catch (e) {
+        console.warn('braze adClick parse error');
+    }
+
+</script>
+
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe title="" src="https://www.googletagmanager.com/ns.html?id=GTM-NF4R92W"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+
+<script type="text/javascript"> (function(b,s,t,c,k){b[k]=s;b[s]=b[s]||function(){(b[s].q=b[s].q||[]).push(arguments)}; var f=t.getElementsByTagName(c)[0],j=t.createElement(c);j.async=true;j.src='//cdn.tbase.co.kr/tbase/l4cts.v4.2d.js';f.parentNode.insertBefore(j,f);})(window,'_dbase_n',document,'script','DBASEAnalyticsObj'); _dbase_n('1109','land'); </script> <!-- END OF CTS TRACKING SCRIPT -->
+
+
+
+
+<!-- <div id="tempHtml" class="contEditor" style="display:none"> -->
+
+
+
+<!-- </div> -->
+
+<script>
+    /* 3453582 */
+    if( ($('#firstPurchase_sticky').length > 0 || $('#man_sticky').length > 0 || $('#appPush_sticky').length > 0 || $('#health_secret_popup_sticky').length > 0)
+        && $('#noti_service').length > 0 ){
+        $('#footerTab').addClass('mfixAll');
+    }
+
+    if($('#footerTab').hasClass('notch')){
+        $('#fixBtn').addClass('notch');
+    }
+
+    let mamS = $(".mamSlide");
+    if(mamS.length>0){ // 첫구매가
+        if ( mamS.find(".swiper-slide").length > 1 ) { //두개 이상일때 실행
+            var mamSlide = new Swiper('.mamSlide', {
+                pagination: { el: '.swiper-pagination' },
+                loop: true,
+                speed: 200,
+                observer: true,
+                observeParents: true,
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction:false
+                }
+            });
+        }
+    }
+    //스티키 첫구매 유도
+
+    var firstPurchase_sticky = $('#firstPurchase_sticky'),
+        btnClose = firstPurchase_sticky.find('.btnClose');
+    btnClose.on('click', function () {
+        $('#footerTab').removeClass('mfixBtn01, mfixBtn03, mfixAll');
+        firstPurchase_sticky.remove();
+        if ($('#noti_service').length > 0) {
+            $('#fixBtn').removeClass('mfixBtn01 , mfixBtn03');
+            $('#fixBtn').addClass('mfixBtn02');
+        } else {
+            $('#fixBtn').removeClass('mfixBtn01 , mfixBtn03');
+        }
+    });
+
+    var man_sticky = $('#man_sticky'),
+        btnClose = man_sticky.find('.btnClose');
+    btnClose.on('click', function () {
+        $('#footerTab').removeClass('mfixBtn01, mfixBtn03, mfixAll');
+        man_sticky.remove();
+        if ($('#noti_service').length > 0) {
+            $('#fixBtn').removeClass('mfixBtn01 , mfixBtn03');
+            $('#fixBtn').addClass('mfixBtn02');
+        } else {
+            $('#fixBtn').removeClass('mfixBtn01 , mfixBtn03');
+        }
+    });
+
+    var appPush_sticky = $('#appPush_sticky'),
+        btnClose = firstPurchase_sticky.find('.btnClose');
+    btnClose.on('click', function () {
+        $('#footerTab').removeClass('mfixBtn01, mfixBtn03, mfixAll');
+        appPush_sticky.remove();
+        if ($('#noti_service').length > 0) {
+            $('#fixBtn').removeClass('mfixBtn01 , mfixBtn03');
+            $('#fixBtn').addClass('mfixBtn02');
+        } else {
+            $('#fixBtn').removeClass('mfixBtn01 , mfixBtn03');
+        }
+    });
+    function underAppVersion() {
+        if (!common.app.appInfo)
+            return false;
+
+        var isOs = common.app.appInfo.ostype;
+        var isVer = common.app.appInfo.appver.replace(/\./gi, "");
+
+        return (isOs === "10" && parseInt(isVer) < 248) || (isOs === "20" && parseInt(isVer) < 243);
+    };
+
+    // TODO: [CJOYCSD-63] 모바일앱에서 tms 제거 후 setPushMsg 함수 제거
+    function setPushMsg(data) {
+        if (!data) return;
+        if ('string' == typeof data) data = JSON.parse(data.replace(/(?:\r\n|\r|\n|\\n)/g, '<br>').replace(/\\/g, '/'));
+        if (!data || data.constructor != Object || !data.msgs || !Array.isArray(data.msgs)) return;
+    };
+</script>
+<script type="text/javascript" src="https://mstatic.oliveyoung.co.kr/mc-static-root/js/common/footer.js?dumm=20260618095511"></script>
+<script>
+    $(document).ready(function() {
+        const maxDisplayCount = 1;
+        let tabbarReddotData = null;
+
+        try {
+            tabbarReddotData = JSON.parse(localStorage.getItem("TABBAR_REDDOT_STATE_KEY")) || [];
+        } catch (error) {
+            tabbarReddotData = [];
+        }
+
+        const tabIDList = [];
+        $('[data-reddot="Y"]').each((idx, ele) => {
+            const id = $(ele).data("id");
+            const path = $(ele).data("path")
+            let item = tabbarReddotData.find((x) => x.key === id) ;
+            if (path.toLowerCase().includes('/display/getSCategoryList.do'.toLowerCase())) {
+                if (!item) {
+                    tabbarReddotData.push(item = { key :id, cnt :1 });
+                } else if (Number(item.cnt) < maxDisplayCount) {
+                    item.cnt = Number(item.cnt) + 1;
+                }
+
+                if (item.cnt <= maxDisplayCount) {
+                    localStorage.setItem("TABBAR_REDDOT_STATE_KEY", JSON.stringify(tabbarReddotData));
+
+                }
+            }
+
+            if ((item?.cnt || 0) < maxDisplayCount) {
+                tabIDList.push(id);
+                ele.classList.toggle("reddot", true);
+            }
+        });
+
+        if (tabIDList.length > 0) {
+            const reddotArgs = encodeURIComponent(JSON.stringify({ tabIDList: tabIDList }));
+
+            if (window.ui?.setRedDotOnTabs) {
+                window.ui.setRedDotOnTabs(reddotArgs);
+            } else if (window.webkit?.messageHandlers?.setRedDotOnTabs?.postMessage) {
+                window.webkit.messageHandlers.setRedDotOnTabs.postMessage(reddotArgs);
+            }
+        }
+    });
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon='{"version":"2024.11.0","token":"fb0a1f1ec8a04a81953d86afa32800db","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="allMenu" class="allmenu" style="" tabindex="0">
+	<div id="mLnb">
+		
+
+	</div>
+	
+</div>
+
+
+<script>
+$(document).ready(function() {
+    //기본 상단 GNB & 슬라이드 바 처리
+    common.gnb.init();
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://mstatic.oliveyoung.co.kr/mc-static-root/js/common/logTool.js?dumm=20260618095511"></script>
+<script src="https://mstatic.oliveyoung.co.kr/mc-static-root/js/common/dataplatform/dataplatform.sdk.js?dumm=20260618095511"></script>
+
+<script type="text/javascript">
+    try {
+        var gtmMbrNo = 'null';
+        var hashedGtmMbrNo = "";
+        if(gtmMbrNo && gtmMbrNo !== 'null') {
+            hashedGtmMbrNo = CryptoJS.SHA256(gtmMbrNo).toString();
+        }
+
+        initLogTool({
+            amplitudeApiKey: '7fbb2638080bfb08b7c3941c0d94c565',
+            dataplatformApiKey: '1F3E5D1602573D7F3F0DF578E1B1C5100F9193C0',
+        }, hashedGtmMbrNo, {
+            env: "prd",
+            dataplatformBaseURL: 'https://api.dp.oliveyoung.co.kr',
+        });
+    } catch (_) {
+        console.warn('LogTool init error');
+    }
+</script>
+
+

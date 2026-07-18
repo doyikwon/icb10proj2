@@ -1,0 +1,41 @@
+import sys
+from playwright.sync_api import sync_playwright
+from playwright_stealth import Stealth
+
+HEADERS = {
+    "cookie": "PCID=17783699071059948981675; MARKETID=17783699071059948981675; x-coupang-target-market=KR; x-coupang-accept-language=ko-KR; sid=efc0d5eb3b2249f68435b057b16d19ce69dcc91c; trac_src=1042016; trac_spec=10304903; trac_addtag=900; trac_ctag=HOME; trac_lptag=%EC%BF%A0%ED%8C%A1; trac_itime=20260627133837; bm_ss=ab8e18ef4e; bm_so=3357518B916B5B3B004FC03D50AA03F7FECF45E64C85E115B2143858E3F425E3~YAAQ5Ij+eek3nvyeAQAAhF1fBwgMQwgOtWsfU5+zS6X5vG4sm843d4aJ0tsKVuMTAf6SYzTQ4E+7EGqaOhTb9AsrV4Gr9ueMrTBoNwk33cV0gtmuJ8WUufdNWMGh4UkIpzSA/FuP3rxvwoAMqFZRopZoH9ujDfJlFGLOWu/OINeggUpGvskGemqF+ScnfF0llxImx2280/CCoo+PO3UGL8cyhtaYQ+PwN6hPzbKNNV7VT/eR+PcwVisnvKfnxGT3vlJ2u3cZqnYJWOxgOiTaNIczdITAK1h4W3wxHEf5d2MG2Qrz5HbhhRCMsaaGpc02RTuqLtKy0J035+evO7avpdfWaJqG8J1Fw+weLjzV2KDVG7ByfzfQSA36jOEDDQLU2COzXRPm9Bzi+09ptNVyfRAGNIm8GYYyDQi7sU18wCGDndTYA4BbsJOdpsxdHq1MHCXSnIzx9X7SuNz0CbxUki8XF1qA; bm_mi=1AFD132A0194E0CB836DC34BDD3A4F1D~YAAQ5Ij+edA4nvyeAQAAdWZfBwCjiZ1U+jgIoRgE3Z8nSe3xqUuyIPthIpyDdI+PwczzbAsLm/bTmFKJsTbSi2wwzMlO8XfhnOnGL4xnnOJAhm72Ci6eOrh8eql32cdZlGdps4nVTdz3qVbyZ+2GE3Tpz1kaT/0XeMDW8PaiCRlCGuTNhbPorzryHHvazSfFJytkp/YpERQc2aUDxTm3OqFyEADl75DKW61vEQKQ04c0JkBDHhmADP2/Rwd98hXyx5KgdKqqR9XnlHHNZNP2hNl9GGERXnB1CMvxdkngONWcBkyReerZLCPoRmjK7TaHRqwk8Ga/169ebV9oc6W+1hy3nM9d~1; bm_lso=3357518B916B5B3B004FC03D50AA03F7FECF45E64C85E115B2143858E3F425E3~YAAQ5Ij+eek3nvyeAQAAhF1fBwgMQwgOtWsfU5+zS6X5vG4sm843d4aJ0tsKVuMTAf6SYzTQ4E+7EGqaOhTb9AsrV4Gr9ueMrTBoNwk33cV0gtmuJ8WUufdNWMGh4UkIpzSA/FuP3rxvwoAMqFZRopZoH9ujDfJlFGLOWu/OINeggUpGvskGemqF+ScnfF0llxImx2280/CCoo+PO3UGL8cyhtaYQ+PwN6hPzbKNNV7VT/eR+PcwVisnvKfnxGT3vlJ2u3cZqnYJWOxgOiTaNIczdITAK1h4W3wxHEf5d2MG2Qrz5HbhhRCMsaaGpc02RTuqLtKy0J035+evO7avpdfWaJqG8J1Fw+weLjzV2KDVG7ByfzfQSA36jOEDDQLU2COzXRPm9Bzi+09ptNVyfRAGNIm8GYYyDQi7sU18wCGDndTYA4BbsJOdpsxdHq1MHCXSnIzx9X7SuNz0CbxUki8XF1qA~1782535119569; bm_sz=3327338B26479C5B7ECEB5D6AAF0B4CC~YAAQ5Ij+eRc8nvyeAQAAhYJfBwAc7022aQrYqbdGAZlARNiRN1YtT+u7+1DqW8kt7s+MjPFoZsFPeaiQHhPsZxduuS1ZpvyiAwkcFj2sGjIdaHjamnlrmgcpn0r2h4txoccYwePu5EA/mU6FZRwZqvv5saeWLJpIXScbnmp3CGhH14Aa8/BSA0O3P3cqbYh+Dyp/UPmU0QBw015RaDBHeM3f0Fr0jJeE2JceF7BH9ujrbZFCAx0tOJyDp6e0CcRpkqG1iu/vpngz29udVvV6lrMlDzJPjRqrvV71zYy7enPA/1WdQKbCE821NG3VTYwDEEkfufJTfkJDNtKbOJ4UiRA1cZ63X/+V2BTRsYdEdxq/ytNXki+3IpcbNm50QehjSR2ZKzx+NdX4Mfux8R2Rfqn5Rna+2nlniOX26A==~4534596~3293489; x-cp-s=YzE9MyZjMj0xLjAuMCZjMz0xNzgyNTM1MTI2NzMxJmM0PVNIUm9LMmhKY1VWNGJVSXdjMHBxZDJsd1JESm9SVk5CT1Vsd1IyMU1OMjlZY2xOaGFVeEVXVGhJUzBsdWFqUm5TME54SzJ0TmNXZHJjMHh2Ym5WSksydHlZbFYxUVZOUFRtOWlNakZ5WWxjd1RUZHRORUZ2WXpSSVNYVmFhalJKVkVKVU1sVkVkeXRGYzFKdk1HNUJkMUZFWjJ0VGFsRTBWMGhKZFVKR1dqWmlUV2M5JmM1PWNvbS5jb3VwYW5nLndlYiZjNj0mYzc9JmM4PTk1MGE3NTVkOTNkMzRkMWI4YjYzMzM4N2IwNDU1NWU0JmM5PTEmczE9dTMxaGFTZWxkWjh1K0J6QWk0S0tnM0kxSlJqeTJHQ2hxTzI3dGdFdS9Zdz0mczI9MS4wLjA=; _abck=2E0430660BD46EF924CB45ED75DE9830~0~YAAQ5Ij+eSA8nvyeAQAA6YJfBxAgkRU3F4dOUvHXKpTF7EJLmNhzxGCCYYSaAVs8d0vzRtdqNyxg/ritg4+daniQFE7mnj53lqMrJdR5FmNhQ+Z4tL3NehvmjyH3JECSQmu+scFM/nCQcv+XE0w0FL1FBa0dVeLRRkQuCWHTBBnUk5iHZaCrn5ZB0J+Yj3NAY7QQBBeSi3UJajf3bonxnhKyQYAzcHks1GBa1bYIkxia9czCDX3CGw4JrWmK3wgcd3AMl4qckR0k8kHykMctnG/fQzZuahJVVzzjW2P/tx3mWVLSwxkrND8IqMWanNg3vWOeo5xySghLHdu1IREMt/i38rfnL/hys2+NMYmzJwVpuhYY+IJQtLu1+pyzapg5gmqQnvobbfg3aYL+jSNVckvluPLRSbUsvOEFOp3pcJqAJ6NIpcUzrQCU/nzkDQymF4uKK6h6Hcenw+AFp4cExzBNU2IPHCJZpZM9N1TQp/VsZPm15Ygpa/0MDB/TyeEBbvdKnQe89YLrQ/RryVkBxqvLlVdW4XHCcGQYqpGV6QPpOXtOPUR+OR9066//ooiZKEFT/CQRSvVM6F/CeWXnO0VakeakaDTMPpgfIQwAcvDA+7xUB2buyedLIYh5Bdm8vpYWTN+zykIg/JsqyKDQk9E=~-1~-1~1782538718~AAQAAAAF%2f%2f%2f%2f%2f1DnQhNV+3Hq3zXl2P44Mjqk%2fFHCHtXnKnbune6K4Lyn92WS%2fPbxuptVeGytVTXAvimOffFUjux1RHmAZ%2f4yNEwYm2AYbgjPoUVl~-1; ak_bmsc=6962E486D0D1602D285CFCF2C25C54F7~000000000000000000000000000000~YAAQ5Ij+eWQ8nvyeAQAAWoZfBwC1qNTS7coUSJrOz3hVtlchuf4/YoKPcQJqlpAsKzxZ+Cv3rfbQ4H8jouQbXH44h4ohFlFrxqVm//YvjCl+5f56fIO3KVTry6ebcFzYlqnWTGcw44OxmKSfTqHgspWt9TWEr7Gz5IALCh8phsT04iDlxvXlW2uGwUDsN6EwMDnkuX76JXjKdn25Jm9yOyX4bj9vcxJnkvREtRRaFUZz5Nbit2p0rp7JU3Jx8Nv+f/eeTdvRa4JGLGkPkBHHYY1ilOvbn44ssqEhr+mDgN/x13yB1PmdIBIwP8GP1AfX/qW8sGfpKy0tXJHdtxy6gOsJCry/WV7BOH+A35jFDBbUYmKX+nM8GuWSfMq6xmE6d1ldTxtyfpBzWquWko0OCdyXNJYBjFBST6aBuoiW3g12TLZUOAQpWtVsSfvfHVi1C4Ft7QDf9SMKGMNGxM2OFz8Zyv2D/hOesCWOci/HjnegvasqxX3ABt0DWoFc5s2H+EUQfjdeeVV7Hg==; bm_sv=43C9FB71E37E2414F6C9D088ACD6120B~YAAQ5Ij+eRA9nvyeAQAAqI5fBwDUDoa+97c+86B2jBE3aCdXP09yPhVP99p2nENytKCEvlj4Ngx/JOphwmq8JIjFGMSq4Hgj0KsDUQHtYVAh6aIpEVuV/8vM35tG6Ci5hlGJOHNWCo8XDBFM8OsTh9rNJ6x6KFLorMr0O5l7dW5gHv8tR6SOeEI1Vre4kZvh8hUVB6tnhjLSUjUp7ev4dGE6nYhuatHaKYs25vQeWQ6IJ9wR6wscN0X86TdSp0YNVg==~1; bm_s=YAAQ5Ij+eZFDnvyeAQAAaM5fBwXdBjee94kSgh0hdJ8kj00AN8qzoprICh2iNtVFLJTigNWGhsRz69VeQI7jtVPU3nUvBRmhPvP9gyDxt1cpQHi0BkKXLkSClGa8zHsYlVecG7BzNxBhOfhQNwySlH4GJsjvqA6LAfl1naHiq08msqanZJY35ieMhK7OjAlXQ4tdqEU7BdCx2xsghMA9M1P+vqMRm1x9WI+lqzD6zPfMwBSOkSMDFdflQotiZLpFA1DWZWXHquhTZ792TPkSPe8mJTrrhRgmh+H9860P6OqUnZd7sZ07404tRa9sIAvp3K2WyknnnaxxkdRRxIVeo/+bCc4drcMdwoTKDm9BJxVyXnTSdiKS4DYMvq96TPIecAszH1RtWkzkFghWdxXYK6z+teq7jLPAU2fI9G7lnyc4FxTfZWCqJWy8C0ri0iiNtQ9jBkjwkcg6d3+etDTZPmzkJfRH2v8NcFVvoKMV9Kv/X+fkVzQGl2fPbY1354sPvDUVijq0ijhfmn9uCZlvyoeOBEYakK5mXgVjUG07nyEluwmWI9NSnxt+XfiTHc37v92Z2PeJ5sGV/jxYlW4EJXoF8IhkMtUiH8xO40Sahxa8rTc4KkL8WqdCqCDt3/FDUVZZ/ytgG7QHvaRtX6q07+OO/Uq0A9IsuKFJUme/f3B5Hqe7Pa3FVSsHKvon1tTYnphnhQnbgPBghHg5s8TpQ6kJDsZK5JW4ywRRrSQJgsytHR2qhodY4wJxtljfYyE2bwcJiOx+08rPSbkvd04SYdjmpUixSTnmANbm6zdfMT63Oi/K8gycDhbi2VfptdnZiRQxxCl5Nw0rooFF0LNnp5HfqgXkAtifSrxJN1OgJ6/bxFsIARh+TKzB39YVw/QuK69E71Di56GenqfS9AaYw5A6//rgNkfYwuyDx/Cyrw7TLtyZsDHmpdYGCfHt+nS4ZDUMp1rI59Vd4lQ7GXOnPXZwyRVaJcnjUpodBf5PYoLO"
+}
+
+def main():
+    with sync_playwright() as p:
+        browser = p.chromium.launch(headless=False)
+        context = browser.new_context(
+            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+        )
+        Stealth().apply_stealth_sync(context)
+        
+        cookies_list = []
+        for cookie in HEADERS["cookie"].split(";"):
+            if "=" in cookie:
+                name, value = cookie.strip().split("=", 1)
+                cookies_list.append({
+                    "name": name,
+                    "value": value,
+                    "domain": ".coupang.com",
+                    "path": "/"
+                })
+        context.add_cookies(cookies_list)
+
+        page = context.new_page()
+        page.goto("https://www.coupang.com/np/categories/305798?page=2", wait_until="domcontentloaded")
+        page.wait_for_timeout(5000)
+        
+        html = page.content()
+        with open("playwright_page2_real.html", "w", encoding="utf-8") as f:
+            f.write(html)
+            
+        print(f"HTML size: {len(html)}")
+        browser.close()
+
+if __name__ == "__main__":
+    main()

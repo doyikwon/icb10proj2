@@ -1,0 +1,146 @@
+[
+  {
+    "id": "MFDS-HF-1",
+    "source_agency": "식약처_건강기능식품",
+    "category": "건강기능식품",
+    "product_name": "11종 혼합유산균",
+    "main_ingredient": "고유의",
+    "efficacy": "유산균 증식 및 유해균 억제·배변활동 원활에 도움을 줄 수 있음",
+    "updated_at": "20201027"
+  },
+  {
+    "id": "MFDS-HF-2",
+    "source_agency": "식약처_건강기능식품",
+    "category": "건강기능식품",
+    "product_name": "6년근 고려홍삼정 PREMIUM",
+    "main_ingredient": "암갈색의",
+    "efficacy": "①면역력 증진②피로개선③혈소판 응집 억제를 통한 혈액흐름에 도움④기억력 개선⑤항산화에 도움을 줄 수 있음",
+    "updated_at": "20150522"
+  },
+  {
+    "id": "MFDS-HF-3",
+    "source_agency": "식약처_건강기능식품",
+    "category": "건강기능식품",
+    "product_name": "6년근 홍삼 자신만만 홍삼스틱",
+    "main_ingredient": "고유의",
+    "efficacy": "  ⑴ 면역력 증진에 도움을 줄 수 있음\n  ⑵ 피로개선에 도움을 줄 수 있음\n  ⑶ 혈소판 응집 억제를 통한 혈액흐름에 도움을 줄 수 있음\n  ⑷ 기억력 개선에 도움을 줄 수 있음\n  ⑸ 항산화에 도움을 줄 수 있음",
+    "updated_at": "20200813"
+  },
+  {
+    "id": "MFDS-HF-4",
+    "source_agency": "식약처_건강기능식품",
+    "category": "건강기능식품",
+    "product_name": "7종혼합유산균(N)",
+    "main_ingredient": "고유의",
+    "efficacy": "유산균 증식 및 유해균 억제･배변활동 원활･장 건강에 도움을 줄 수 있음",
+    "updated_at": "20250826"
+  },
+  {
+    "id": "MFDS-HF-5",
+    "source_agency": "식약처_건강기능식품",
+    "category": "건강기능식품",
+    "product_name": "ATOMY VITAMIN C(브라질)",
+    "main_ingredient": "고유의",
+    "efficacy": "[비타민C] ①결합조직 형성과 기능유지에 필요 ②철의 흡수에 필요 ③항산화 작용을 하여 유해산소로부터 세포를 보호하는데 필요",
+    "updated_at": "20240522"
+  },
+  {
+    "id": "MFDS-FN-1",
+    "source_agency": "식약처_식품영양성분",
+    "category": "밥류",
+    "product_name": "국밥_돼지머리",
+    "main_ingredient": "탄수화물,단백질,지방",
+    "efficacy": "영양공급",
+    "updated_at": "2025-01-23"
+  },
+  {
+    "id": "MFDS-FN-2",
+    "source_agency": "식약처_식품영양성분",
+    "category": "밥류",
+    "product_name": "국밥_순대국밥",
+    "main_ingredient": "탄수화물,단백질,지방",
+    "efficacy": "영양공급",
+    "updated_at": "2025-01-23"
+  },
+  {
+    "id": "MFDS-FN-3",
+    "source_agency": "식약처_식품영양성분",
+    "category": "밥류",
+    "product_name": "국밥_콩나물",
+    "main_ingredient": "탄수화물,단백질,지방",
+    "efficacy": "영양공급",
+    "updated_at": "2025-01-23"
+  },
+  {
+    "id": "MFDS-FN-4",
+    "source_agency": "식약처_식품영양성분",
+    "category": "밥류",
+    "product_name": "기장밥",
+    "main_ingredient": "탄수화물,단백질,지방",
+    "efficacy": "영양공급",
+    "updated_at": "2025-01-23"
+  },
+  {
+    "id": "MFDS-FN-5",
+    "source_agency": "식약처_식품영양성분",
+    "category": "밥류",
+    "product_name": "김밥",
+    "main_ingredient": "탄수화물,단백질,지방",
+    "efficacy": "영양공급",
+    "updated_at": "2025-01-23"
+  },
+  {
+    "id": "MFDS-DR-1",
+    "source_agency": "식약처_e약은요",
+    "category": "일반의약품",
+    "product_name": "",
+    "main_ingredient": "의약성분",
+    "efficacy": "",
+    "updated_at": "2026-07-13"
+  },
+  {
+    "id": "MFDS-DR-2",
+    "source_agency": "식약처_e약은요",
+    "category": "일반의약품",
+    "product_name": "",
+    "main_ingredient": "의약성분",
+    "efficacy": "",
+    "updated_at": "2026-07-13"
+  },
+  {
+    "id": "MFDS-DR-3",
+    "source_agency": "식약처_e약은요",
+    "category": "일반의약품",
+    "product_name": "",
+    "main_ingredient": "의약성분",
+    "efficacy": "",
+    "updated_at": "2026-07-13"
+  },
+  {
+    "id": "MFDS-DR-4",
+    "source_agency": "식약처_e약은요",
+    "category": "일반의약품",
+    "product_name": "",
+    "main_ingredient": "의약성분",
+    "efficacy": "",
+    "updated_at": "2026-07-13"
+  },
+  {
+    "id": "MFDS-DR-5",
+    "source_agency": "식약처_e약은요",
+    "category": "일반의약품",
+    "product_name": "",
+    "main_ingredient": "의약성분",
+    "efficacy": "",
+    "updated_at": "2026-07-13"
+  },
+  {
+    "id": "MOCK-001",
+    "source_agency": "국민건강보험공단(가상)",
+    "category": "질병통계",
+    "product_name": "감기/호흡기 질환",
+    "main_ingredient": "N/A",
+    "efficacy": "해당 계절 유행",
+    "updated_at": "2026-07-13"
+  }
+]
