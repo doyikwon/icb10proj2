@@ -309,6 +309,14 @@
                             <i class="fa-solid fa-basket-shopping text-[#10B981]"></i> 추천 영양소별 실시간 외부 판매처 바로가기
                         </h3>
                         
+                        <div id="pharmacist-opinion-container" class="bg-emerald-50 rounded-2xl p-6 border border-emerald-100 mb-6 hidden">
+                            <h4 class="font-bold text-emerald-900 flex items-center gap-2 mb-3">
+                                <i class="fa-solid fa-user-doctor"></i> 전담 약사의 종합 소견서
+                            </h4>
+                            <div id="pharmacist-opinion-text" class="text-[13px] text-emerald-800 leading-loose space-y-3 whitespace-pre-line">
+                            </div>
+                        </div>
+
                         <div id="recommended-products-container" class="space-y-4">
                             <!-- JS를 통해 선택된 고민에 따라 영양소 카드가 실시간 생성됩니다. -->
                         </div>
@@ -1894,6 +1902,8 @@
         // 추천 상품 카드 렌더링
         const listContainer = document.getElementById('recommended-products-container');
         const chartContainer = document.getElementById('safety-chart-container');
+        const opinionContainer = document.getElementById('pharmacist-opinion-container');
+        const opinionText = document.getElementById('pharmacist-opinion-text');
         
         listContainer.innerHTML = '';
         chartContainer.innerHTML = '';
@@ -1919,6 +1929,35 @@
         if (activeConcerns.length === 0) {
             activeConcerns = ['fatigue', 'immunity'];
         }
+
+        // 약사 소견서 내용 동적 생성
+        const goalNames = {
+            fatigue: '만성 피로 개선', eyes: '눈 건강 보호', gut: '장 건강', skin: '피부 미용',
+            immunity: '면역력 증진', joints: '관절/뼈 건강', brain: '인지력 개선', diet: '체지방 관리',
+            menses: '여성 혈행 및 대사', hair: '모발 건강', sleep: '수면 질 개선', blood: '혈행/혈관 건강',
+            prostate: '전립선 건강', liver: '간 기능 회복'
+        };
+        const activeGoalTexts = activeConcerns.map(c => goalNames[c] || c).join(', ');
+        
+        let opinionHTML = `안녕하세요. 꼼꼼하게 작성해주신 건강 설문을 바탕으로 맞춤 영양 설계를 완료했습니다.\n\n`;
+        opinionHTML += `현재 연령대와 체질량지수 등 신체 기초 데이터를 분석한 결과, 전반적인 대사 밸런스를 유지하면서도 <strong>[${activeGoalTexts}]</strong> 영역에서 적극적인 영양학적 개입이 필요해 보입니다. 시중에는 수많은 영양제가 존재하지만, 무작정 좋다고 하여 여러 제품을 섞어 드시면 오히려 간과 신장에 부담을 줄 수 있고 성분 간 충돌이 발생할 수 있습니다. 따라서 현재 건강 상태와 생활 습관(음주, 흡연, 운동량 등), 기저 질환까지 종합적으로 고려하여 가장 안전하면서도 시너지를 낼 수 있는 최적의 성분들만 엄선했습니다.\n\n`;
+
+        if (state.answers.smoking === 'yes') {
+            opinionHTML += `특히 <strong>흡연</strong>을 하시는 경우 항산화 관리가 필수적이지만, 고농도 베타카로틴이나 특정 합성 비타민A 유도체가 포함된 제품은 오히려 기관지와 폐 건강에 위험 인자로 작용할 수 있다는 임상 결과가 있습니다. 이에 따라 이번 추천 리스트에서는 해당 성분을 원천 차단하고, 안전하게 체내 활성 산소를 제거할 수 있는 <strong>대체 항산화 네트워크(비타민C, 아스타잔틴, 셀레늄 등)</strong> 위주로 재구성하였습니다.\n\n`;
+        }
+
+        if (state.answers.allergies.length > 0 && !state.answers.allergies.includes('none')) {
+            opinionHTML += `또한 작성해주신 <strong>알레르기 정보</strong>를 바탕으로 교차 반응 위험이 있는 원료(예: 대두 추출물, 특정 해조류 베이스 등)를 완전히 배제한 식물성 에코 캡슐 및 안심 정제만을 추천 목록에 올렸습니다.\n\n`;
+        }
+
+        if (state.answers.pillDiscomfort === 'extreme') {
+            opinionHTML += `평소 <strong>큰 알약을 삼키기 어려워하시는 점</strong>을 깊이 공감합니다. 영양제는 매일 꾸준히 섭취해야 그 의미가 있으므로, 복용 순응도를 극대화할 수 있도록 목넘김이 편안한 초소형 정제나 맛있는 구미(젤리), 혹은 흡수율이 높은 액상 제형 위주로 우선 선별했습니다.\n\n`;
+        }
+        
+        opinionHTML += `아래 제안해 드리는 제품들은 함량 미달이거나 불필요한 첨가물이 많은 제품은 철저히 거르고, <strong>세계적인 원료사의 검증된 원료를 사용하며 식약처 인증을 통과한 신뢰도 높은 제품</strong>들입니다. 각 영양소는 식후 30분 이내에 충분한 물과 함께 섭취하실 때 체내 흡수율이 가장 높으며, 위장 장애를 최소화할 수 있습니다. 만약 현재 처방받아 드시는 전문 의약품이 있다면 아래의 '내 영양제 초과 진단' 탭에서 다시 한번 중복 및 상호작용 여부를 체크하시길 권장합니다. 꾸준한 섭취와 함께 가벼운 운동을 병행하시면 훨씬 더 활기찬 일상을 되찾으실 수 있을 것입니다. 건강한 내일을 응원합니다! 👨‍⚕️`;
+
+        opinionText.innerHTML = opinionHTML;
+        opinionContainer.classList.remove('hidden');
 
         // 1. 추천 영양소 카드 빌더 루프
         activeConcerns.forEach(concern => {
