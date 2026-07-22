@@ -40,7 +40,7 @@ st.markdown("""
 # index.html 파일 읽어서 렌더링
 html_path = os.path.join(os.path.dirname(__file__), "..", "html_app", "index.html")
 if os.path.exists(html_path):
-    with open(html_path, "r", encoding="utf-8") as f:
+    with open(html_path, "r", encoding="utf-8", errors="ignore") as f:
         html_data = f.read()
     
     # iframe 형태로 전체 화면 렌더링
